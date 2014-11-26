@@ -1,4 +1,4 @@
-class EloValueUser < EloValue
+class EloUserValue < EloValue
   belongs_to :user, dependent: :destroy
 
 
