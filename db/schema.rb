@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126132432) do
+ActiveRecord::Schema.define(version: 20141126143148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "elo_teams", force: true do |t|
+  create_table "elo_team_values", force: true do |t|
     t.date     "date"
     t.float    "value"
     t.integer  "league_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141126132432) do
     t.datetime "updated_at"
   end
 
-  create_table "elo_users", force: true do |t|
+  create_table "elo_user_values", force: true do |t|
     t.date     "date"
     t.float    "value"
     t.integer  "league_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20141126132432) do
     t.integer  "team_id2"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   create_table "teams", force: true do |t|

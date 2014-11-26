@@ -23,7 +23,9 @@ group :development do
   gem 'gnuplot'
 end
 
-group :test, :development do
+group :test, :development do#
+  gem 'database_cleaner'
+  gem 'rspec'
   gem 'rspec-rails'
   gem 'byebug'
 end
