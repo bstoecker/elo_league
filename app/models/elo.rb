@@ -2,17 +2,23 @@ class Elo
   def initialize(args)
     @score1 = args.fetch(:score1)
     @score2 = args.fetch(:score2)
-    fail "sum of scores need to be greater than 0" if @score1 + @score2 <= 0
+    fail 'sum of scores need to be greater than 0' if @score1 + @score2 <= 0
     @current_elo1 = args.fetch(:current_elo1)
     @current_elo2 = args.fetch(:current_elo2)
   end
 
   def new_elo1
-    @current_elo1 + elo_difference(@current_elo1, @current_elo2, @score1, @score2)
+    @current_elo1 + elo_difference(@current_elo1,
+                                   @current_elo2,
+                                   @score1,
+                                   @score2)
   end
 
   def new_elo2
-    @current_elo2 + elo_difference(@current_elo2, @current_elo1, @score2, @score1)
+    @current_elo2 + elo_difference(@current_elo2,
+                                   @current_elo1,
+                                   @score2,
+                                   @score1)
   end
 
   private
@@ -33,7 +39,7 @@ class Elo
 
   def elo_expectation(current_elo_i, current_elo_j)
     power_const = (current_elo_j - current_elo_i) / 400
-    divisor = 1 + 10 ** power_const
+    divisor = 1 + 10**power_const
     1.0 / divisor
   end
 
