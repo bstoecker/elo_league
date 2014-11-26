@@ -21,11 +21,15 @@ describe EloTeamValue do
       before_count = EloTeamValue.count
       expect do
         EloTeamValue.update_for(
-          team1: team1, score1: 1, team2: team2, score2: 0, date: Date.new(2014)
+          team1: team1,
+          score1: 1,
+          team2: team2,
+          score2: 0,
+          date: Date.new(2014, 1, 2)
         )
       end.to change { EloTeamValue.count }
-        .from(before_count)
-        .to(EloTeamValue.count + 1)
+        .from(3)
+        .to(4)
     end
   end
 
