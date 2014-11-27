@@ -1,5 +1,13 @@
 h2 Leagues
 
-= each
-  = partial 'league'
+ul#leagues
 
+  li#new_league
+    p Create New League
+    form action='league/new'
+      input#name
+      input#describtion
+      button This button is not bound
+
+  = each
+    = partial 'league'
