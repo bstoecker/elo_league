@@ -1,3 +1,5 @@
 li
-  p league.name
-  p league.description
+  p
+    = name
+  p
+    = describtion

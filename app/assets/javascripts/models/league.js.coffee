@@ -1,4 +1,3 @@
-EloLeague.League = DS.Model.extend({
+EloLeague.League = DS.Model.extend
   name: DS.attr('string')
-  description: DS.attr('string')
-})
+  describtion: DS.attr('string')
