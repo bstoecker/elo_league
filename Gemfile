@@ -6,6 +6,16 @@ gem 'jbuilder'
 gem 'jwt'
 gem 'active_model_serializers'
 
+# assets related
+gem 'coffee-rails'
+gem 'bower-rails'
+gem 'jquery-rails'
+gem 'font-awesome-rails'
+gem 'ember-source'
+gem 'handlebars-source'
+gem 'handlebars_assets'
+gem 'emblem-rails'
+
 group :production do
   gem 'unicorn'
 end
@@ -25,7 +35,7 @@ group :development do
   gem 'gnuplot'
 end
 
-group :test, :development do#
+group :test, :development do
   gem 'database_cleaner'
   gem 'rspec'
   gem 'rspec-rails'

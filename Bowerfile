@@ -1,0 +1,8 @@
+asset 'es5-shim'
+asset 'moment'
+asset 'highstock-release'
+asset 'handlebars'
+asset 'ember'
+asset 'ember-data'
+asset 'jqueryui'
+asset 'jquery-minicolors'

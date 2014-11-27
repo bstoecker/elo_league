@@ -1,0 +1,13 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "es5-shim": "latest",
+    "moment": "latest",
+    "highstock-release": "latest",
+    "handlebars": "latest",
+    "ember": "latest",
+    "ember-data": "latest",
+    "jqueryui": "latest",
+    "jquery-minicolors": "latest"
+  }
+}

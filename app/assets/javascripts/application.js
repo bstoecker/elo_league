@@ -10,7 +10,16 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+
+//= require jquery/dist/jquery.js
+//= require jqueryui/ui/datepicker.js
+//= require highstock-release
+//= require ../../../vendor/assets/bower_components/moment/min/moment-with-locales.js
+//= require ../../../vendor/assets/bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020
+//= require ../../../vendor/assets/bower_components/handlebars/handlebars
+//= require ../../../vendor/assets/bower_components/ember/ember
+//= require ../../../vendor/assets/bower_components/ember-data/ember-data
+//= require_self
+//= require ember-setup
+
+EloLeague = Ember.Application.create({ rootElement: '#main_contents' })

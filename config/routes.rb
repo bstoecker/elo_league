@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'application#index'
+
   namespace :api, defaults: { format: :json } do
     resources :leagues, except: [:new, :edit] do
       resources :teams, except: [:new, :edit]
