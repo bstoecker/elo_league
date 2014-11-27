@@ -14,11 +14,9 @@
 //= require jquery/dist/jquery.js
 //= require jqueryui/ui/datepicker.js
 //= require highstock-release
-//= require ../../../vendor/assets/bower_components/moment/min/moment-with-locales.js
-//= require ../../../vendor/assets/bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020
-//= require ../../../vendor/assets/bower_components/handlebars/handlebars
-//= require ../../../vendor/assets/bower_components/ember/ember
-//= require ../../../vendor/assets/bower_components/ember-data/ember-data
+//= require vendor/assets/bower_components/handlebars/handlebars.js
+//= require vendor/assets/bower_components/ember/ember.js
+//= require vendor/assets/bower_components/ember-data/ember-data.js
 //= require_self
 //= require ember-setup
 
