@@ -1,25 +1,16 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-
 //= require jquery/dist/jquery.js
 //= require jqueryui/ui/datepicker.js
 //= require highstock-release
 //= require ../../../vendor/assets/bower_components/moment/min/moment-with-locales.js
-//= require ../../../vendor/assets/bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020
 //= require ../../../vendor/assets/bower_components/handlebars/handlebars
 //= require ../../../vendor/assets/bower_components/ember/ember
 //= require ../../../vendor/assets/bower_components/ember-data/ember-data
 //= require_self
 //= require ember-setup
 
-EloLeague = Ember.Application.create({ rootElement: '#main_contents' })
+console.log("Wat?");
+
+EloLeague = Ember.Application.create({
+  rootElement: '#main-contents',
+  LOG_TRANSITIONS: true
+});

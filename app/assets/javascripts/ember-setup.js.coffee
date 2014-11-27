@@ -8,3 +8,5 @@
 #= require_tree ./templates
 #= require ./router
 #= require_tree ./routes
+
+console.log("Hello 2?");

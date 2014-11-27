@@ -7,6 +7,7 @@ gem 'jwt'
 gem 'active_model_serializers'
 
 # assets related
+gem 'sass-rails'
 gem 'coffee-rails'
 gem 'bower-rails'
 gem 'jquery-rails'
