@@ -12,6 +12,7 @@ gem 'coffee-rails'
 gem 'bower-rails'
 gem 'font-awesome-rails'
 gem 'handlebars_assets'
+gem 'uglifier'
 
 group :production do
   gem 'unicorn'
