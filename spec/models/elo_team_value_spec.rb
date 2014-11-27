@@ -25,7 +25,7 @@ describe EloTeamValue do
           score1: 1,
           team2: team2,
           score2: 0,
-          date: Date.new(2014, 1, 2)
+          date: Date.today
         )
       end.to change { EloTeamValue.count }
         .from(3)
