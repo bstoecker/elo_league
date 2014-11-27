@@ -1,4 +1,4 @@
-class ResultsController < ApplicationController
+class Api::ResultsController < ApplicationController
   before_action :set_result, only: [:show, :update, :destroy]
   before_action :set_league, only: [:index]
 
