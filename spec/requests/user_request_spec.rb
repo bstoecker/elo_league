@@ -1,0 +1,51 @@
+require 'rails_helper'
+
+describe 'get /api/league/:id/users', type: :request do
+
+  it 'returns the right users' do
+    league = FactoryGirl.build :league
+
+    users = [
+      (
+        FactoryGirl.build :user,
+              first_name: 'Esmeralda',
+              last_name: 'Dennsiewilja',
+              nick_name: 'Esmeralda',
+              league: league
+      ),
+      (
+        FactoryGirl.build :user,
+              first_name: 'Rainsch',
+              last_name: 'Heisst',
+              nick_name: 'Rainsch',
+              league: league
+      )
+    ]
+
+    users.each(&:save!)
+
+    request_headers = { 'CONTENT_TYPE' => 'application/json' }
+    get "/api/leagues/#{league.id}/users", request_headers
+    expect(response.body).to be_json_eql(
+      "{
+        \"users\": [
+          {
+            \"id\": \"#{users.first.id}\",
+            \"first_name\": \"Esmeralda\",
+            \"last_name\": \"Dennsiewilja\",
+            \"nick_name\": \"Esmeralda\",
+            \"current_elo_value\": 1500.0
+          },
+          {
+            \"id\": \"#{users.second.id}\",
+            \"first_name\": \"Rainsch\",
+            \"last_name\": \"Heisst\",
+            \"nick_name\": \"Rainsch\",
+            \"current_elo_value\": 1500.0
+          }
+        ]
+      }"
+    )
+  end
+
+end

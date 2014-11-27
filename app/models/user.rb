@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include ActiveModel::Serializers::JSON
+  default_scope -> { order('nick_name ASC') }
   has_and_belongs_to_many :teams
   has_many :elo_user_values
   belongs_to :league

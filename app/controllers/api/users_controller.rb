@@ -5,7 +5,9 @@ class Api::UsersController < ApplicationController
   # GET league/:league_id/users.json
   def index
     @users = @league.users
-    render json: @users.to_json
+    render json: ActiveModel::ArraySerializer.new(
+      @users, root: 'users', each_serializer: UserSerializer
+    ).to_json
   end
 
   # GET league/:league_id/users/1.json
@@ -17,7 +19,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params.merge(league: @league))
 
     if @user.save
-      render json: @user.to_json
+      render json: UserSerializer.new(@user, root: 'user').to_json
     else
       render json: @user.errors, status: :unprocessable_entity
     end

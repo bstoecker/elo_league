@@ -4,6 +4,7 @@ gem 'rails'
 gem 'pg'
 gem 'jbuilder'
 gem 'jwt'
+gem 'active_model_serializers'
 
 group :production do
   gem 'unicorn'
@@ -14,6 +15,7 @@ group :test do
   gem 'simplecov'
   gem 'rubocop'
   gem 'json_expressions'
+  gem 'json_spec'
 end
 
 group :development do
