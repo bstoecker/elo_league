@@ -19,15 +19,5 @@ module EloLeague
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-
-    config.assets.initialize_on_precompile = true
-
-    # handlebars_assets gem wants to know whether it is dealing with ember
-    HandlebarsAssets::Config.ember = true
-    # We want to use the bower version of handlebars since that seems to be
-    # the ember.js supported one
-    HandlebarsAssets::Config.compiler = 'handlebars.js'
-    HandlebarsAssets::Config.compiler_path =
-        Rails.root.join('vendor/assets/bower_components/handlebars')
   end
 end

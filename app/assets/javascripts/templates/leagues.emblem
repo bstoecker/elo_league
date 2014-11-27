@@ -1,0 +1,4 @@
+h2 Leagues
+
+each leage in leagues
+  partial "league" league

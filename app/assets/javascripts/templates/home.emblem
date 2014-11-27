@@ -1,8 +1,8 @@
 img src="/assets/images/injixo_foosball.png"
 
-h2 Welcome to Elo-League,
+h2 Welcome to Elo-League
 
-a DevCon 2014 project to create league tables for any kind of competition between teams or single     players. Just select a league below or create your own to start tracking matches! How it works: A standard elo-value is assigned to each player before the first match that increases and decreases based on victories and defeats. In the stats view, you can check your current position and score in the overall ranking. It's that easy! Start your first match today!
+p DevCon 2014 project to create league tables for any kind of competition between teams or single     players. Just select a league below or create your own to start tracking matches! How it works: A standard elo-value is assigned to each player before the first match that increases and decreases based on victories and defeats. In the stats view, you can check your current position and score in the overall ranking. It's that easy! Start your first match today!
 
 p (by) Lekealem Asong, David Diemer, Martin Eismann, Lars Enstipp, Miguel Gomez, Andreas Hoffmann, Bernhard Stöcker, Frank Trautmann
 
