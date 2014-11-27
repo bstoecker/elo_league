@@ -20,13 +20,7 @@ describe EloTeamValue do
       allow(Date).to receive(:today).and_return(today + 1)
       before_count = EloTeamValue.count
       expect do
-        EloTeamValue.update_for(
-          team1: team1,
-          score1: 1,
-          team2: team2,
-          score2: 0,
-          date: Date.today
-        )
+        EloTeamValue.update_for(team1, team2, 1, 0, Date.today)
       end.to change { EloTeamValue.count }
         .from(3)
         .to(4)

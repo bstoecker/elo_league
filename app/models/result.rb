@@ -12,8 +12,6 @@ class Result < ActiveRecord::Base
   def update_elo
     team1 = Team.find_by(id: team_id1)
     team2 = Team.find_by(id: team_id1)
-    Team.update_elos(
-      date: date, team1: team1, team2: team2, score1: score1, score2: score2
-    )
+    EloValue.update_for(team1, team2, score1, score2, date)
   end
 end

@@ -1,6 +1,12 @@
 class Team < ActiveRecord::Base
   has_many :elo_team_values
+  has_and_belongs_to_many :users
   after_create :create_initial_elo
+
+  def create_or_update_elo(new_elo_value, date)
+    item = EloTeamValue.find_or_initialize_by(team: self, date: date)
+    item.update_attributes(value: new_elo_value)
+  end
 
   private
 

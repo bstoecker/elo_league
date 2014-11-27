@@ -8,17 +8,25 @@ class Elo
   end
 
   def new_elo1
-    @current_elo1 + elo_difference(@current_elo1,
-                                   @current_elo2,
-                                   @score1,
-                                   @score2)
+    @current_elo1 + elo_difference1
+  end
+
+  def elo_difference1
+    @elo_difference1 ||= elo_difference(@current_elo1,
+                                        @current_elo2,
+                                        @score1,
+                                        @score2)
   end
 
   def new_elo2
-    @current_elo2 + elo_difference(@current_elo2,
-                                   @current_elo1,
-                                   @score2,
-                                   @score1)
+    @current_elo2 + elo_difference2
+  end
+
+  def elo_difference2
+    @elo_difference2 ||= elo_difference(@current_elo2,
+                                        @current_elo1,
+                                        @score2,
+                                        @score1)
   end
 
   private
