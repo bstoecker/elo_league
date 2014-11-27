@@ -1,4 +1,5 @@
 class Result < ActiveRecord::Base
+  default_scope -> { order('date ASC') }
   def self.add_result(new_result)
     transaction do
       new_result.save!

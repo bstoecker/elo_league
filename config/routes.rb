@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :leagues, except: [:new, :edit] do
       resources :teams, except: [:new, :edit]
       resources :users, except: [:new, :edit]
+      resources :results, except: [:new, :edit]
     end
   end
 end
