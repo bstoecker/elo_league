@@ -10,12 +10,8 @@ gem 'active_model_serializers'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'bower-rails'
-gem 'jquery-rails'
 gem 'font-awesome-rails'
-gem 'ember-source'
-gem 'handlebars-source'
 gem 'handlebars_assets'
-gem 'emblem-rails'
 
 group :production do
   gem 'unicorn'

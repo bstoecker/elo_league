@@ -5,8 +5,8 @@
     "moment": "latest",
     "highstock-release": "latest",
     "handlebars": "latest",
-    "ember": "latest",
-    "ember-data": "latest",
+    "ember": "~1.7.0",
+    "ember-data": "~ 1.0.0-beta.11",
     "jqueryui": "latest",
     "jquery-minicolors": "latest"
   }
