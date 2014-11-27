@@ -1,4 +1,4 @@
-class UserSerializer < ActiveModel::Serializer
+class TeamSerializer < ActiveModel::Serializer
   attributes :id, :name, :current_elo_value, :league_id
 
   def id
