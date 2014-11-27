@@ -1,5 +1,3 @@
-h2 Leagues
-
 ul#leagues
 
   li#new_league
@@ -11,3 +9,4 @@ ul#leagues
 
   = each
     = partial 'league'
+

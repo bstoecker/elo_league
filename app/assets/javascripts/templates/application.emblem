@@ -1,0 +1,11 @@
+.header
+  .home-menu.pure-menu.pure-menu-open.pure-menu-horizontal.pure-menu-fixed
+    a.pure-menu-heading href="#"
+      | Elo-League
+    ul
+      li.pure-menu-selected
+        link-to 'home'
+          | Home
+
+outlet home
+outlet leagues

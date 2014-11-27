@@ -1,14 +1,30 @@
-img src="/assets/images/injixo_foosball.png"
+.header
+  .home-menu.pure-menu.pure-menu-open.pure-menu-horizontal.pure-menu-fixed
+    a.pure-menu-heading href="#"
+      | Elo-League
+    ul
+      li.pure-menu-selected
+        link-to 'home'
+          | Home
 
-h2 Welcome to Elo-League
+.splash-container
+  .splash
+    h1.splash-head
+      | Welcome
+    p.splash-subhead
+     | Select a league or create your own to start tracking matches!
+    p
+      link-to 'leagues' classNames="pure-button pure-button-primary"
+        | Start
 
-p DevCon 2014 project to create league tables for any kind of competition between teams or single     players. Just select a league below or create your own to start tracking matches! How it works: A standard elo-value is assigned to each player before the first match that increases and decreases based on victories and defeats. In the stats view, you can check your current position and score in the overall ranking. It's that easy! Start your first match today!
+.content-wrapper
+  .content
+    h2.content-head.is-center How it works:
 
-p (by) Lekealem Asong, David Diemer, Martin Eismann, Lars Enstipp, Miguel Gomez, Andreas Hoffmann, Bernhard Stöcker, Frank Trautmann
+    p A standard elo-value is assigned to each player before the first match that increases and decreases based on victories and defeats. In the stats view, you can check your current position and score in the overall ranking. It's that easy! Start your first match today!
 
-= link-to 'leagues'
-  | Start
+    p (by) Lekealem Asong, David Diemer, Martin Eismann, Lars Enstipp, Miguel Gomez, Andreas Hoffmann, Bernhard Stöcker, Frank Trautmann
 
-p
-  | EloLeague. Made with love
-  span (c) injixo 2014
+    .footer.l-box.is-center
+      | EloLeague. Made with love
+      span (c) injixo 2014
