@@ -8,17 +8,17 @@ describe 'get /api/league/:id/users', type: :request do
     users = [
       (
         FactoryGirl.build :user,
-              first_name: 'Esmeralda',
-              last_name: 'Dennsiewilja',
-              nick_name: 'Esmeralda',
-              league: league
+                          first_name: 'Esmeralda',
+                          last_name: 'Dennsiewilja',
+                          nick_name: 'Esmeralda',
+                          league: league
       ),
       (
         FactoryGirl.build :user,
-              first_name: 'Rainsch',
-              last_name: 'Heisst',
-              nick_name: 'Rainsch',
-              league: league
+                          first_name: 'Rainsch',
+                          last_name: 'Heisst',
+                          nick_name: 'Rainsch',
+                          league: league
       )
     ]
 

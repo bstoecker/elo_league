@@ -1,6 +1,6 @@
 class Api::ResultsController < ApplicationController
   before_action :set_result, only: [:show, :update, :destroy]
-  before_action :set_league, only: [:index]
+  before_action :set_league, only: [:index, :create]
 
   # GET league/:league_id/results.json
   def index
@@ -10,7 +10,9 @@ class Api::ResultsController < ApplicationController
 
   # POST league/:league_id/results.json
   def create
-    @result = Result.new(result_params)
+    args = result_params
+    Result.create_from(@league, args[:iser_ids1], args[:user_ids2],
+                       args[:score1], args[:score2], args[:date])
 
     if @result.save
       render :show, status: :created, location: @result
@@ -38,6 +40,6 @@ class Api::ResultsController < ApplicationController
 
   def result_params
     params.require(:result)
-      .permit(:league_id, :score1, :score2, :team_id1, :team_id2, :date)
+      .permit(:league_id, :score1, :score2, :user_ids1, :user_ids2, :date)
   end
 end

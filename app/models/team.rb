@@ -13,6 +13,14 @@ class Team < ActiveRecord::Base
     elo_team_values.last
   end
 
+  def self.find_by_users_or_create(league, user_ids)
+    user_ids.sort!
+    found_team = league.teams.find { |team| team.users.map(&:id) == user_ids }
+    found_team || league.teams.create(
+      name: '', users: user_ids.map { |id| User.find(id) }
+    )
+  end
+
   private
 
   def create_initial_elo

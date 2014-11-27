@@ -4,7 +4,7 @@ class EloTeamValue < ActiveRecord::Base
 
   def self.update_for(team1, team2, score1, score2, date)
     current_elo_team1 = team1.elo_team_values.last
-    current_elo_team2 = team1.elo_team_values.last
+    current_elo_team2 = team2.elo_team_values.last
     elo = Elo.new(
       score1: score1,
       score2: score2,
