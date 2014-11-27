@@ -5,6 +5,7 @@ class Api::ResultsController < ApplicationController
   # GET league/:league_id/results.json
   def index
     @results = @league.results
+    render json: @results.to_json
   end
 
   # POST league/:league_id/results.json
@@ -34,10 +35,6 @@ class Api::ResultsController < ApplicationController
   end
 
   private
-
-  def set_result
-    @result = Result.find(params[:id])
-  end
 
   def result_params
     params.require(:result)

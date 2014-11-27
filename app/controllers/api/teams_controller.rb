@@ -1,16 +1,18 @@
 class Api::TeamsController < ApplicationController
+  before_action :set_league, only: [:index]
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
-  # GET /teams.json
+  # GET league/:league_id/teams.json
   def index
-    @teams = Team.all
+    @teams = @league.teams
+    render json: @teams.to_json
   end
 
-  # GET /teams/1.json
+  # GET league/:league_id/teams/1.json
   def show
   end
 
-  # POST /teams.json
+  # POST league/:league_id/teams.json
   def create
     @team = Team.new(team_params)
 
@@ -21,7 +23,7 @@ class Api::TeamsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /teams/1.json
+  # PATCH/PUT league/:league_id/teams/1.json
   def update
     if @team.update(team_params)
       render :show, status: :ok, location: @team
@@ -30,7 +32,7 @@ class Api::TeamsController < ApplicationController
     end
   end
 
-  # DELETE /teams/1.json
+  # DELETE league/:league_id/teams/1.json
   def destroy
     @team.destroy
     head :no_content

@@ -4,6 +4,7 @@ class Api::LeaguesController < ApplicationController
   # GET /leagues.json
   def index
     @leagues = League.all
+    render json: @leagues.to_json
   end
 
   # GET /leagues/1.json
@@ -15,7 +16,7 @@ class Api::LeaguesController < ApplicationController
     @league = League.new(league_params)
 
     if @league.save
-      render :show, status: :created, location: @league
+      render json: @league.to_json
     else
       render json: @league.errors, status: :unprocessable_entity
     end

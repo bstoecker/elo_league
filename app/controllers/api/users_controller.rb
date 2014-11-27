@@ -1,27 +1,29 @@
 class Api::UsersController < ApplicationController
+  before_action :set_league, only: [:index, :create]
   before_action :set_user, only: [:show, :update, :destroy]
 
-  # GET /users.json
+  # GET league/:league_id/users.json
   def index
-    @users = User.all
+    @users = @league.users
+    render json: @users.to_json
   end
 
-  # GET /users/1.json
+  # GET league/:league_id/users/1.json
   def show
   end
 
-  # POST /users.json
+  # POST league/:league_id/users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.merge(league: @league))
 
     if @user.save
-      render :show, status: :created, location: @user
+      render json: @user.to_json
     else
       render json: @user.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /users/1.json
+  # PATCH/PUT league/:league_id/users/1.json
   def update
     if @user.update(user_params)
       render :show, status: :ok, location: @user
@@ -30,7 +32,7 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1.json
+  # DELETE league/:league_id/users/1.json
   def destroy
     @user.destroy
     head :no_content
