@@ -72,7 +72,7 @@ GEM
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
-    handlebars_assets (0.18)
+    handlebars_assets (0.17.2)
       execjs (>= 1.2.9)
       multi_json
       sprockets (>= 2.0.3)
