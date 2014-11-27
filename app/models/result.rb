@@ -1,5 +1,4 @@
 class Result < ActiveRecord::Base
-
   def self.add_result(new_result)
     transaction do
       new_result.save!

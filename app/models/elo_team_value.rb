@@ -16,8 +16,6 @@ class EloTeamValue < ActiveRecord::Base
     update_team_users(team1, team2, elo, date)
   end
 
-  private
-
   def self.update_teams(team1, team2, elo, date)
     elo_team1 = elo.new_elo1
     elo_team2 = elo.new_elo2

@@ -11,14 +11,13 @@ describe EloTeamValue do
       team1.save!
       team2.save!
       FactoryGirl.create :elo_team_value,
-             date: today + 1,
-             value: 1500,
-             team: team1
+                         date: today + 1,
+                         value: 1500,
+                         team: team1
     end
 
     it 'creates a new value, when no value exist and updates existing values' do
       allow(Date).to receive(:today).and_return(today + 1)
-      before_count = EloTeamValue.count
       expect do
         EloTeamValue.update_for(team1, team2, 1, 0, Date.today)
       end.to change { EloTeamValue.count }
@@ -26,5 +25,4 @@ describe EloTeamValue do
         .to(4)
     end
   end
-
 end

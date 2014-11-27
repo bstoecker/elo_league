@@ -24,7 +24,7 @@ describe User do
     it 'creates or updates user elo' do
       expect do
         User.update_users_by_team(team, 5, Date.today)
-      end.to change{ EloUserValue.count }.from(3).to(4)
+      end.to change { EloUserValue.count }.from(3).to(4)
     end
 
     it 'updates elo values correctly' do
