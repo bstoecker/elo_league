@@ -31,6 +31,7 @@ describe 'get /api/league/:id/users', type: :request do
         \"users\": [
           {
             \"id\": \"#{users.first.id}\",
+            \"league_id\":\"#{league.id}\",
             \"first_name\": \"Esmeralda\",
             \"last_name\": \"Dennsiewilja\",
             \"nick_name\": \"Esmeralda\",
@@ -38,6 +39,7 @@ describe 'get /api/league/:id/users', type: :request do
           },
           {
             \"id\": \"#{users.second.id}\",
+            \"league_id\":\"#{league.id}\",
             \"first_name\": \"Rainsch\",
             \"last_name\": \"Heisst\",
             \"nick_name\": \"Rainsch\",

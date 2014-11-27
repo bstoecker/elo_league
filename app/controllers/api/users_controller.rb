@@ -12,6 +12,7 @@ class Api::UsersController < ApplicationController
 
   # GET league/:league_id/users/1.json
   def show
+    render json: UserSerializer.new(@user, root: 'user').to_json
   end
 
   # POST league/:league_id/users.json
@@ -28,7 +29,7 @@ class Api::UsersController < ApplicationController
   # PATCH/PUT league/:league_id/users/1.json
   def update
     if @user.update(user_params)
-      render :show, status: :ok, location: @user
+      render json: UserSerializer.new(@user, root: 'user').to_json
     else
       render json: @user.errors, status: :unprocessable_entity
     end

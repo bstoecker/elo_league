@@ -4,11 +4,14 @@ class Api::LeaguesController < ApplicationController
   # GET /leagues.json
   def index
     @leagues = League.all
-    render json: @leagues.to_json
+    render json: ActiveModel::ArraySerializer.new(
+      @leagues, root: 'leagues', each_serializer: LeagueSerializer
+    ).to_json
   end
 
   # GET /leagues/1.json
   def show
+    render json: LeagueSerializer.new(@league, root: 'league').to_json
   end
 
   # POST /leagues.json
@@ -16,7 +19,7 @@ class Api::LeaguesController < ApplicationController
     @league = League.new(league_params)
 
     if @league.save
-      render json: @league.to_json
+      render json: LeagueSerializer.new(@league, root: 'league').to_json
     else
       render json: @league.errors, status: :unprocessable_entity
     end
@@ -25,7 +28,7 @@ class Api::LeaguesController < ApplicationController
   # PATCH/PUT /leagues/1.json
   def update
     if @league.update(league_params)
-      render :show, status: :ok, location: @league
+      render json: LeagueSerializer.new(@league, root: 'league').to_json
     else
       render json: @league.errors, status: :unprocessable_entity
     end
