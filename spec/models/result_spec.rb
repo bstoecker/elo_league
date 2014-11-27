@@ -28,7 +28,12 @@ describe Result do
     user_ids2 = users[2..3].map(&:id)
     expect do
       Result.build_from(
-        league, user_ids1, user_ids2, 1, 0, Date.today + 1
+        league: league,
+        user_ids1: user_ids1,
+        user_ids2: user_ids2,
+        score1: 1,
+        score2: 0,
+        date: Date.today + 1
       )
     end.to change { league.teams.count }.from(1).to(2)
   end
@@ -38,8 +43,13 @@ describe Result do
     user_ids2 = users[2..3].map(&:id)
     elo_before = team.current_elo.value
     Result.build_from(
-      league, user_ids1, user_ids2, 1, 0, Date.today + 1
-    )
+        league: league,
+        user_ids1: user_ids1,
+        user_ids2: user_ids2,
+        score1: 1,
+        score2: 0,
+        date: Date.today + 1
+      )
     expect(team.current_elo.value).to be > elo_before
   end
 
@@ -47,8 +57,13 @@ describe Result do
     user_ids1 = users[0..1].map(&:id)
     user_ids2 = users[2..3].map(&:id)
     Result.build_from(
-      league, user_ids1, user_ids2, 1, 0, Date.today + 1
-    )
+        league: league,
+        user_ids1: user_ids1,
+        user_ids2: user_ids2,
+        score1: 1,
+        score2: 0,
+        date: Date.today + 1
+      )
     other_team = Team.find do |team|
       team.users == users[2..3]
     end
@@ -60,8 +75,13 @@ describe Result do
     user_ids2 = users[2..3].map(&:id)
     elo_before = team.users.map { |user| user.current_elo.value }
     Result.build_from(
-      league, user_ids1, user_ids2, 1, 0, Date.today + 1
-    )
+        league: league,
+        user_ids1: user_ids1,
+        user_ids2: user_ids2,
+        score1: 1,
+        score2: 0,
+        date: Date.today + 1
+      )
     team.users.each.with_index do |user, i|
       expect(user.current_elo.value).to be > elo_before[i]
     end
@@ -71,8 +91,13 @@ describe Result do
     user_ids1 = users[0..1].map(&:id)
     user_ids2 = users[2..3].map(&:id)
     Result.build_from(
-      league, user_ids1, user_ids2, 1, 0, Date.today + 1
-    )
+        league: league,
+        user_ids1: user_ids1,
+        user_ids2: user_ids2,
+        score1: 1,
+        score2: 0,
+        date: Date.today + 1
+      )
     other_team = Team.find do |team|
       team.users == users[2..3]
     end

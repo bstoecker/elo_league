@@ -40,7 +40,11 @@ class Elo
 
   # Not the original elo constant. It is weigted with the exact result
   def elo_constant(current_elo_i, score_i, score_j)
-    weight = (score_i - score_j).to_f.abs / [score_i, score_j].max
+    weight = if @score1 >= 0 && @score2 >= 0
+               (score_i - score_j).to_f.abs / [score_i, score_j].max
+             else
+               1
+             end
     return 10 * weight if current_elo_i  > 2400
     20 * weight
   end
