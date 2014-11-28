@@ -1,12 +1,22 @@
-ul#leagues
+#leagues
 
-  li#new_league
-    p Create New League
-    form action='league/new'
-      input#name
-      input#describtion
-      button This button is not bound
+  .m-league-list
 
-  = each
-    = partial 'league'
+    .m-league.as-new
+      .m-league--header New League
+      .m-league--body
+        div{bind-attr class="newLeagueInputVisible::hide"}
+          div
+            span
+              | N: 
+            EloLeague.TypeaheadInputFieldView value=newName
+          div
+            span
+              | D: 
+            EloLeague.TypeaheadInputFieldView value=newDescribtion
+          button.pure-button.pure-button-primary{action "createNewLeage"} Create
+        div{bind-attr class="newLeagueInputVisible:hide:m-league--icon"}{action "showNewLeageInput"}
+          i.fa.fa-plus.fa-2x
+    = each
+      = partial 'league'
 

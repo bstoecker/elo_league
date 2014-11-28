@@ -3,7 +3,61 @@
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
-    top: 30px;
+    top: 50px;
     left: 0;
     position: fixed !important;
+    padding: 2em;
+}
+
+.m-league {
+  display: block;
+  color: white;
+  text-align: center;
+  position: relative;
+  color: #5e8b9a;
+}
+
+.m-league-list .m-league {
+  float: left;
+  width: 240px;
+  margin: 0 20px 20px 0;
+}
+
+.m-league.as-new .m-league--icon {
+  margin-top: 40px;
+  display: block;
+  cursor: pointer;
+}
+
+.m-league .m-league--header {
+  padding: 8px;
+  text-transform: uppercase;
+  color: white;
+  position: absolute;
+  width: 100%;
+  min-height: 24px;
+  line-height: 18px;
+  background: #76aec1;
+}
+
+.m-league .m-league--body {
+  padding: 57px 10px 40px;
+  height: 210px;
+  background: #bad6e0;
+  &:hover { background: darken(#bad6e0, 10%) }
+}
+
+/* Alternative Background Colours */
+
+.m-league-list .m-league:nth-child(6n+2) {
+  color: #c2ad47;
+}
+
+.m-league-list .m-league:nth-child(6n+2) .m-league--header {
+  background: #f3d959;
+}
+
+.m-league-list .m-league:nth-child(6n+2) .m-league--body {
+  background: #f9ecac;
+  &:hover { background: darken(#f9ecac, 10%) }
 }

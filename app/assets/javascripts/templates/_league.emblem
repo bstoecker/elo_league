@@ -1,5 +1,5 @@
-li
-  p
+a.m-league href='#'
+  .m-league--header
     = name
-  p
+  .m-league--body
     = describtion
