@@ -1,12 +1,16 @@
 #leagues
 
-  .m-league--header
-    = name
-  .m-league--body
-    = describtion
+  h2 = name
+  p = describtion
 
-  .m-league-list
-    = each user in users
-      .m-league--user
-        = user.nick_name
-        = user.current_elo_value
+  table.pure-table
+    thead
+      tr
+        th Nick Name
+        th Current Elo-Value
+
+    tbody
+      = each user in users
+        tr
+          td = user.nick_name
+          td = user.current_elo_value
