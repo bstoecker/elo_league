@@ -1,3 +1,20 @@
 #leagues
-  .m-league-list
-    =users
+
+  h2 = name
+  p = describtion
+
+  table.pure-table
+    thead
+      tr
+        th Nick Name
+        th Current Elo-Value
+
+    tbody
+      = each user in users
+        tr
+          td = user.nick_name
+          td = user.current_elo_value
+
+  p
+    link-to 'league' this class="pure-button pure-button-primary"
+      | Add new result
