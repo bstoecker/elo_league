@@ -9,7 +9,7 @@ require 'active_record'
 
 ActiveRecord::Base.transaction do
   league = League.create(
-    name: 'The League of Extraordinary Gentlemen',
+    name: 'The L.O.E.G',
     describtion: 'We are looking for the best of the best of the best, Sir!!!'
   )
 
