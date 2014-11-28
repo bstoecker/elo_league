@@ -10,6 +10,13 @@ class Api::UsersController < ApplicationController
     ).to_json
   end
 
+  def index_all
+    @users = User.all
+    render json: ActiveModel::ArraySerializer.new(
+      @users, root: 'users', each_serializer: UserSerializer
+    ).to_json
+  end
+
   # GET league/:league_id/users/1.json
   def show
     render json: UserSerializer.new(@user, root: 'user').to_json

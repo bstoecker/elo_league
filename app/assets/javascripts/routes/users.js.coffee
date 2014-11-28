@@ -1,0 +1,1 @@
+EloLeague.UsersRoute = Ember.Route.extend()

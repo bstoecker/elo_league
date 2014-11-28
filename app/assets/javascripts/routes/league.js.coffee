@@ -1,3 +1,6 @@
 EloLeague.LeagueRoute = Ember.Route.extend
-  model: ->
-    @store.find('user')
+  model: (params) ->
+    @store.find('league', params.league_id)
+
+  setupController: (controller, model) ->
+    controller.set('model', model)
