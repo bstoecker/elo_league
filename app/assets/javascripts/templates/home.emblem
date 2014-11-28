@@ -15,7 +15,7 @@
     p.splash-subhead
      | Select a league or create your own to start tracking matches!
     p
-      link-to 'leagues' classNames="pure-button pure-button-primary"
+      link-to 'leagues' class="pure-button pure-button-primary"
         | Start
 
 .content-wrapper

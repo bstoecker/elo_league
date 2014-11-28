@@ -14,7 +14,6 @@
   color: white;
   text-align: center;
   position: relative;
-  color: #5e8b9a;
 }
 
 .m-league-list .m-league {
@@ -37,14 +36,11 @@
   width: 100%;
   height: 75px;
   line-height: 18px;
-  background: #76aec1;
 }
 
 .m-league .m-league--body {
   padding: 85px 10px 40px;
   height: 250px;
-  background: #bad6e0;
-  &:hover { background: darken(#bad6e0, 10%) }
 }
 
 #new-league-btn {
@@ -53,15 +49,19 @@
 
 /* Alternative Background Colours */
 
-.m-league-list .m-league:nth-child(6n+2) {
-  color: #c2ad47;
+.m-league-list {
+  .m-league { color: #5e8b9a;; }
 }
 
-.m-league-list .m-league:nth-child(6n+2) .m-league--header {
-  background: #f3d959;
+
+.m-league-list {
+  .m-league .m-league--header { background: #76aec1; }
 }
 
-.m-league-list .m-league:nth-child(6n+2) .m-league--body {
-  background: #f9ecac;
-  &:hover { background: darken(#f9ecac, 10%) }
+
+.m-league-list  {
+  .m-league .m-league--body {
+    background: #bad6e0;
+  &:hover { background: darken(#bad6e0, 10%) }
+  }
 }
