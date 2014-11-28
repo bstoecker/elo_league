@@ -1,0 +1,14 @@
+#league
+  .m-league--header
+    = name
+  .m-league--body
+    = describtion
+
+  .m-team-1
+    = partial 'team'
+  .m-team-2
+    = partial 'team'
+
+  button.pure-button.pure-button-primary#new-result-btn{action "createNewResult"} Submit
+  div{bind-attr class="newResultInputVisible:hide:m-result--icon"}{action "showNewResultInput"}
+    i.fa.fa-plus.fa-2x

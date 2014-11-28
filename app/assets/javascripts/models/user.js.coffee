@@ -1,3 +1,2 @@
-EloLeague.User = DS.Model.extend({
+EloLeague.User = DS.Model.extend
   league: DS.belongsTo('league')
-});

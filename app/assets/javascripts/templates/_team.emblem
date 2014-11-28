@@ -1,0 +1,18 @@
+.team
+
+  .m-player-1
+    = each
+      = partial 'users'
+
+  .m-player-2
+    = each
+      = partial 'users'
+
+  .m-result.as-new
+    .m-result--header New Result
+    .m-result--body.m-result--new
+      div{bind-attr class="newResultInputVisible::hide"}
+        div
+          span
+            | Score:
+          EloLeague.TypeaheadInputFieldView#result-score value=newScore
