@@ -16,5 +16,5 @@
           td = user.current_elo_value
 
   p
-    link-to 'league' this class="pure-button pure-button-primary"
+    a href="/assets/images/mockup_match-screen.png" class="pure-button pure-button-primary"
       | Add new result
