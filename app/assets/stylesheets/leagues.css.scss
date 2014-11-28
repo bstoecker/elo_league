@@ -35,16 +35,20 @@
   color: white;
   position: absolute;
   width: 100%;
-  min-height: 24px;
+  height: 75px;
   line-height: 18px;
   background: #76aec1;
 }
 
 .m-league .m-league--body {
-  padding: 57px 10px 40px;
-  height: 210px;
+  padding: 85px 10px 40px;
+  height: 250px;
   background: #bad6e0;
   &:hover { background: darken(#bad6e0, 10%) }
+}
+
+#new-league-btn {
+  margin: 10px;
 }
 
 /* Alternative Background Colours */

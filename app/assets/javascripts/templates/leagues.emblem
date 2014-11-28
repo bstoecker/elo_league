@@ -4,17 +4,17 @@
 
     .m-league.as-new
       .m-league--header New League
-      .m-league--body
+      .m-league--body.m-league--new
         div{bind-attr class="newLeagueInputVisible::hide"}
           div
             span
-              | N: 
-            EloLeague.TypeaheadInputFieldView value=newName
+              | Name:
+            input#league-name value=newName
           div
             span
-              | D: 
-            EloLeague.TypeaheadInputFieldView value=newDescribtion
-          button.pure-button.pure-button-primary{action "createNewLeage"} Create
+              | Describtion:
+            input#league-description value=newDescribtion
+          button.pure-button.pure-button-primary#new-league-btn{action "createNewLeague"} Create
         div{bind-attr class="newLeagueInputVisible:hide:m-league--icon"}{action "showNewLeageInput"}
           i.fa.fa-plus.fa-2x
     = each
