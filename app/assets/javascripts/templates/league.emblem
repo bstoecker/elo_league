@@ -14,3 +14,7 @@
         tr
           td = user.nick_name
           td = user.current_elo_value
+
+  p
+    link-to 'league' this class="pure-button pure-button-primary"
+      | Add new result
