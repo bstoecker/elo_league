@@ -2,5 +2,6 @@
 
 EloLeague.Router.map ->
    @route 'home', path: '/'
-   @resource 'leagues', path: '/leagues'
+   @resource 'leagues', path: '/leagues', ->
+      @route 'league', path: ':league_id'
 
