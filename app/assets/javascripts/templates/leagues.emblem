@@ -12,7 +12,7 @@
             EloLeague.TypeaheadInputFieldView#league-name value=newName
           div
             span
-              | Describtion:
+              | Description:
             EloLeague.TypeaheadInputFieldView#league-description value=newDescribtion
           button.pure-button.pure-button-primary#new-league-btn{action "createNewLeague"} Create
         div{bind-attr class="newLeagueInputVisible:hide:m-league--icon"}{action "showNewLeageInput"}
