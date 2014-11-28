@@ -13,11 +13,9 @@ class Api::ResultsController < ApplicationController
     args = result_params
     Result.create_from(args.merge(league: @league))
 
-    if @result.save
-      render :show, status: :created, location: @result
-    else
-      render json: @result.errors, status: :unprocessable_entity
-    end
+    render json: ActiveModel::ResultSerializer.new(
+      Result.all.last, root: 'result'
+    ).to_json
   end
 
   # PATCH/PUT league/:league_id/results/1.json
@@ -39,6 +37,6 @@ class Api::ResultsController < ApplicationController
 
   def result_params
     params.require(:result)
-      .permit(:score1, :score2, :user_ids1, :user_ids2, :date)
+      #.permit(:score1, :score2, :user_ids1, :user_ids2, :date)
   end
 end

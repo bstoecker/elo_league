@@ -27,7 +27,7 @@ describe Result do
     user_ids1 = users[0..1].map(&:id)
     user_ids2 = users[2..3].map(&:id)
     expect do
-      Result.build_from(
+      Result.create_from(
         league: league,
         user_ids1: user_ids1,
         user_ids2: user_ids2,
@@ -42,7 +42,7 @@ describe Result do
     user_ids1 = users[0..1].map(&:id)
     user_ids2 = users[2..3].map(&:id)
     elo_before = team.current_elo.value
-    Result.build_from(
+    Result.create_from(
         league: league,
         user_ids1: user_ids1,
         user_ids2: user_ids2,
@@ -56,7 +56,7 @@ describe Result do
   it 'decreases the elo of the new created team' do
     user_ids1 = users[0..1].map(&:id)
     user_ids2 = users[2..3].map(&:id)
-    Result.build_from(
+    Result.create_from(
         league: league,
         user_ids1: user_ids1,
         user_ids2: user_ids2,
@@ -74,7 +74,7 @@ describe Result do
     user_ids1 = users[0..1].map(&:id)
     user_ids2 = users[2..3].map(&:id)
     elo_before = team.users.map { |user| user.current_elo.value }
-    Result.build_from(
+    Result.create_from(
         league: league,
         user_ids1: user_ids1,
         user_ids2: user_ids2,
@@ -90,7 +90,7 @@ describe Result do
   it 'decreases the elo of the new created team' do
     user_ids1 = users[0..1].map(&:id)
     user_ids2 = users[2..3].map(&:id)
-    Result.build_from(
+    Result.create_from(
         league: league,
         user_ids1: user_ids1,
         user_ids2: user_ids2,
