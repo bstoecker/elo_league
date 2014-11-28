@@ -9,6 +9,7 @@
 
 .splash-container
   .splash
+    img.splash-pic src="/Injixo_foosball.png"
     h1.splash-head
       | Welcome
     p.splash-subhead
