@@ -1,15 +1,3 @@
-class TeamSerializer < ActiveModel::Serializer
-  attributes :id, :name, :current_elo_value, :league_id
-
-  def id
-    object.id.to_s
-  end
-
-  def league_id
-    object.league_id.to_s
-  end
-
-  def current_elo_value
-    object.current_elo.value
-  end
+class ResultSerializer < ActiveModel::Serializer
+  attributes :team_id1, :team_id2, :score1, :score2, :date, :id
 end
