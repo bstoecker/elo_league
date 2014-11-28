@@ -1,4 +1,5 @@
 EloLeague.LeaguesController = Ember.ArrayController.extend
+  itemController: 'league'
 
   newLeagueInputVisible: false
 
@@ -7,7 +8,11 @@ EloLeague.LeaguesController = Ember.ArrayController.extend
     showNewLeageInput: ->
       @set('newLeagueInputVisible', true)
 
-    createNewLeage: ->
-      @set('newLeagueInputVisible', false)
+    createNewLeague: ->
+      league = @store.createRecord 'league',
+        name: @get('newName')
+        describtion: @get('newDescribtion')
+      league.save().then =>
+        @set('newLeagueInputVisible', false)
 
 
