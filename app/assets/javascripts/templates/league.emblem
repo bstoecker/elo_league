@@ -1,3 +1,12 @@
 #leagues
+
+  .m-league--header
+    = name
+  .m-league--body
+    = describtion
+
   .m-league-list
-    =users
+    = each user in users
+      .m-league--user
+        = user.nick_name
+        = user.current_elo_value
