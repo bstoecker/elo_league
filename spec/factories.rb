@@ -14,6 +14,8 @@ FactoryGirl.define do
     first_name          { 'Kenny' }
     last_name           { 'McCormack' }
     nick_name           { 'Kenny' }
+    sequence(:email)    { |n| "Kenny.McCormack#{n}@southpark.com" }
+    password            { 'f00BarBaz' }
     teams               { [] }
     league_id           { FactoryGirl.build :league }
   end
