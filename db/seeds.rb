@@ -16,28 +16,37 @@ ActiveRecord::Base.transaction do
   team1 = Team.create(name: 'Foofighters', league: league)
   team2 = Team.create(name: 'Bloody Marys', league: league)
   team3 = Team.create(name: 'Kamikaze', league: league)
+  team4 = Team.create(name: 'Yay', league: league)
 
   user1 = User.create(
-    first_name: 'Bar', last_name: 'Foo', nick_name: 'Foobar', league: league
+    first_name: 'Lekealem', last_name: 'Asong', nick_name: 'Leke', league: league
   )
   user2 = User.create(
-    first_name: 'Baz', last_name: 'Foo', nick_name: 'Foobaz', league: league
+    first_name: 'Frank', last_name: 'Trautmann', nick_name: 'Frank the Tank', league: league
   )
   user3 = User.create(
-    first_name: 'Mary', last_name: 'Ann', nick_name: 'Maryann', league: league
+    first_name: 'Miguel', last_name: 'M', nick_name: 'Miguelsan', league: league
   )
   user4 = User.create(
-    first_name: 'Mary',
-    last_name: 'Bloody',
-    nick_name: 'Bloody Mary',
+    first_name: 'Andreas',
+    last_name: 'Hoffmann',
+    nick_name: 'AH 47',
     league: league
   )
   user5 = User.create(
-    first_name: 'Ah', last_name: 'Take', nick_name: 'Ahtake', league: league
+    first_name: 'Bernhard', last_name: 'Stoecker', nick_name: 'Et Stoecki', league: league
   )
   user6 = User.create(
-    first_name: 'Ki', last_name: 'Il', nick_name: 'KiIl', league: league
+    first_name: 'David', last_name: 'Diemer', nick_name: 'David', league: league
   )
+  user7 = User.create(
+    first_name: 'Lars', last_name: 'Enstipp', nick_name: 'Lars', league: league
+  )
+  user8 = User.create(
+    first_name: 'Martin', last_name: 'Eismann', nick_name: 'Meismann', league: league
+  )
+
+
 
   team1.users = [user1, user2]
   team1.save!
@@ -45,4 +54,6 @@ ActiveRecord::Base.transaction do
   team2.save!
   team3.users = [user5, user6]
   team3.save!
+  team4.users = [user7, user8]
+  team4.save!
 end
