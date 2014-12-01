@@ -4,12 +4,12 @@
     "es5-shim": "latest",
     "moment": "latest",
     "highstock-release": "latest",
-    "bootstrap": "latest",
     "handlebars": "latest",
-    "ember": "~1.7.0",
+    "ember": "~1.8.0",
     "ember-data": "~ 1.0.0-beta.11",
-    "ember-addons.bs_for_ember": "latest",
     "jqueryui": "latest",
-    "jquery-minicolors": "latest"
+    "jquery-minicolors": "latest",
+    "bootstrap": "latest",
+    "ember-addons.bs_for_ember": "latest"
   }
 }

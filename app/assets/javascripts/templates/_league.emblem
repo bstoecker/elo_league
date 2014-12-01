@@ -1,5 +1,0 @@
-link-to 'league' this class='m-league'
-  .m-league--header
-    = name
-  .m-league--body
-    = describtion

@@ -3,4 +3,4 @@ EloLeague.User = DS.Model.extend
   last_name: DS.attr('string')
   nick_name: DS.attr('string')
   current_elo_value: DS.attr('number')
-  league: DS.belongsTo('league')
+  league: DS.hasMany('league')

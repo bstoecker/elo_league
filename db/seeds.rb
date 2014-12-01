@@ -19,31 +19,68 @@ ActiveRecord::Base.transaction do
   team4 = Team.create(name: 'Yay', league: league)
 
   user1 = User.create(
-    first_name: 'Lekealem', last_name: 'Asong', nick_name: 'Leke', league: league
+    first_name: 'Lekealem',
+    last_name: 'Asong',
+    nick_name: 'Leke',
+    email: 'leke@example.com',
+    password: 'fooBar1234',
+    league: league
   )
   user2 = User.create(
-    first_name: 'Frank', last_name: 'Trautmann', nick_name: 'Frank the Tank', league: league
+    first_name: 'Frank',
+    last_name: 'Trautmann',
+    nick_name: 'Frank the Tank',
+    email: 'frank@example.com',
+    password: 'fooBar1234',
+    league: league
   )
   user3 = User.create(
-    first_name: 'Miguel', last_name: 'M', nick_name: 'Miguelsan', league: league
+    first_name: 'Miguel',
+    last_name: 'M',
+    nick_name: 'Miguelsan',
+    email: 'miguel@example.com',
+    password: 'fooBar1234',
+    league: league
   )
   user4 = User.create(
     first_name: 'Andreas',
     last_name: 'Hoffmann',
     nick_name: 'AH 47',
+    email: 'andreas@example.com',
+    password: 'fooBar1234',
     league: league
   )
   user5 = User.create(
-    first_name: 'Bernhard', last_name: 'Stoecker', nick_name: 'Et Stoecki', league: league
+    first_name: 'Bernhard',
+    last_name: 'Stoecker',
+    nick_name: 'Et Stoecki',
+    email: 'bernhard@example.com',
+    password: 'fooBar1234',
+    league: league
   )
   user6 = User.create(
-    first_name: 'David', last_name: 'Diemer', nick_name: 'David', league: league
+    first_name: 'David',
+    last_name: 'Diemer',
+    nick_name: 'David',
+    email: 'david@example.com',
+    password: 'fooBar1234',
+    league: league
   )
   user7 = User.create(
-    first_name: 'Lars', last_name: 'Enstipp', nick_name: 'Lars', league: league
+    first_name: 'Lars',
+    last_name: 'Enstipp',
+    nick_name: 'Lars',
+    email: 'lars@example.com',
+    password: 'fooBar1234',
+    league: league
   )
   user8 = User.create(
-    first_name: 'Martin', last_name: 'Eismann', nick_name: 'Meismann', league: league
+    first_name: 'Martin',
+    last_name: 'Eismann',
+    nick_name: 'Meismann',
+    email: 'martin@example.com',
+    password: 'fooBar1234',
+    league: league
   )
 
 

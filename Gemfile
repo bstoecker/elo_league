@@ -13,8 +13,9 @@ gem 'bower-rails'
 gem 'font-awesome-rails'
 gem 'handlebars_assets'
 gem 'uglifier'
-gem 'ember-rails'
 gem 'emblem-rails'
+
+gem 'devise'
 
 group :production do
   gem 'unicorn'
