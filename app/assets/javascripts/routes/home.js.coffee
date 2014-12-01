@@ -1,4 +1,4 @@
 EloLeague.HomeRoute = Ember.Route.extend
-  # setupModel: ->
-  #   @store.find('leagues')
+  model: ->
+    @store.find('league')
   renderTemplate: ->
