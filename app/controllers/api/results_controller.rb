@@ -1,6 +1,6 @@
 class Api::ResultsController < ApplicationController
-  before_action :set_result, only: [:show, :update, :destroy]
   before_action :set_league, only: [:index, :create]
+  before_action :set_result, only: [:show, :update, :destroy]
 
   # GET league/:league_id/results.json
   def index
@@ -11,7 +11,7 @@ class Api::ResultsController < ApplicationController
   # POST league/:league_id/results.json
   def create
     args = result_params
-    Result.create_from(args.merge(league: @league))
+    Result.create_from(result_params)
 
     render json: ActiveModel::ResultSerializer.new(
       Result.all.last, root: 'result'
@@ -36,7 +36,14 @@ class Api::ResultsController < ApplicationController
   private
 
   def result_params
-    params.require(:result)
-      #.permit(:score1, :score2, :user_ids1, :user_ids2, :date)
+    result_args = params.require(:result)
+    [:score1, :score2, :user_ids1, :user_ids2, :date].reduce({}) do |a, e|
+      a.merge(e => result_args[e])
+    end.merge(league: @league)
+
+  end
+
+  def set_result
+    @result.find_by(id: params[:id])
   end
 end

@@ -4,7 +4,6 @@ class Result < ActiveRecord::Base
 
   def self.create_from(params)
     league = params.fetch(:league)
-    params.symbolize_keys
     team1 = Team.find_by_users_or_create(league, params.fetch(:user_ids1))
     team2 = Team.find_by_users_or_create(league, params.fetch(:user_ids2))
     result_params = params.merge(team_id1: team1.id, team_id2: team2.id)
@@ -14,13 +13,7 @@ class Result < ActiveRecord::Base
 
   def self.add_result_by_params(params)
     transaction do
-      result_params =
-        [
-          :team_id1, :team_id2, :date, :score1, :score2, :league
-        ].reduce({}) { |a, e| a.merge(e.to_sym => params[e]) }
-      result = Result.new(
-        result_params
-      )
+      result = Result.new(params)
       result.save!
       result.update_elo
     end
