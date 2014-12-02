@@ -8,8 +8,8 @@ RSpec.describe Api::UsersController, type: :controller do
     it 'assigns @users' do
       league = FactoryGirl.create :league
       other_league = FactoryGirl.create :league
-      user = FactoryGirl.create :user, league: league
-      FactoryGirl.create :user, league: other_league
+      user = FactoryGirl.create :user, leagues: [league]
+      FactoryGirl.create :user, leagues: [other_league]
       get :index, league_id: league.id
       expect(assigns(:users)).to eq([user])
     end

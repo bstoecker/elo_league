@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_league, only: [:index, :create]
+  before_action :set_league, only: [:index]
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET league/:league_id/users.json

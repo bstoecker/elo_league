@@ -26,10 +26,10 @@ RSpec.describe Api::ResultsController, type: :controller do
 
     let(:users) do
       [
-        (FactoryGirl.build :user, league: league),
-        (FactoryGirl.build :user, league: league),
-        (FactoryGirl.build :user, league: league),
-        (FactoryGirl.build :user, league: league)
+        (FactoryGirl.build :user, leagues: [league]),
+        (FactoryGirl.build :user, leagues: [league]),
+        (FactoryGirl.build :user, leagues: [league]),
+        (FactoryGirl.build :user, leagues: [league])
       ]
     end
 

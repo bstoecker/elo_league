@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   default_scope -> { order('id ASC') }
   has_and_belongs_to_many :teams
   has_many :elo_user_values
-  belongs_to :league
+  has_and_belongs_to_many :leagues
   after_create :create_initial_elo
 
   def create_or_update_elo_by_diff(elo_diff, date)

@@ -5,7 +5,7 @@ describe Result do
   let(:league) { FactoryGirl.build :league }
   let(:users) do
     4.times.map do |i|
-      FactoryGirl.build :user, nick_name: "#{i}", league: league
+      FactoryGirl.build :user, nick_name: "#{i}", leagues: [league]
     end
   end
   let(:team) do

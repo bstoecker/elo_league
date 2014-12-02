@@ -4,10 +4,10 @@ class UserSerializer < ActiveModel::Serializer
              :last_name,
              :nick_name,
              :current_elo_value,
-             :league_id
+             :league_ids
 
   def league_id
-    object.league_id.to_s
+    object.leagues.map(&:id)
   end
 
   def id
