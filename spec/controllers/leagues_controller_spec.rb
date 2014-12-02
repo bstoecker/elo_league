@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Api::LeaguesController, type: :controller do
 
+  before { allow(controller).to receive(:authenticate_user!) }
+
   describe 'GET index' do
     it 'assigns @league' do
       league = FactoryGirl.create :league

@@ -2,6 +2,10 @@ require 'rails_helper'
 
 describe 'get /api/league/:id/users', type: :request do
 
+  before do
+    allow_any_instance_of(Api::UsersController).to receive(:authenticate_user!)
+  end
+
   it 'returns the right users' do
     league = FactoryGirl.build :league
 
