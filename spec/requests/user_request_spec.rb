@@ -29,7 +29,7 @@ describe 'get /api/league/:id/users', type: :request do
     users.each(&:save!)
 
     request_headers = { 'CONTENT_TYPE' => 'application/json' }
-    get "/api/leagues/#{league.id}/users", request_headers
+    get "/api/users?league_id=#{league.id}", request_headers
     expect(response.body).to be_json_eql(
       "{
         \"users\": [
