@@ -1,22 +1,10 @@
 <div class="header">
-  <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-    <div class="pure-menu-heading"> Elo-League </div>
-    <ul>
-      <li class="pure-menu-selected">
-        {{#link-to 'home'}}
-          Home
-        {{/link-to}}
-      </li>
-    </ul>
-  </div>
+  <div class="header-title header-elements"> Elo-League </div>
+  {{#link-to 'home' class="header-elements"}}
+    Home
+  {{/link-to}}
 </div>
 
-<div class="elo-league-pic-container">
-  <img class="elo-league-pic-container" src="/Injixo_foosball.png"> </img>
-</div>
-<div class="leagues-container">
-  {{render 'leagues'}}
-</div>
-<div class="details">
+<div class="page-content">
   {{outlet}}
 </div>

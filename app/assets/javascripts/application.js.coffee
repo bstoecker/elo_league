@@ -2,6 +2,7 @@
 #= require handlebars
 #= require ember
 #= require ember-data
+#= require ember-simple-auth
 #= require_self
 #= require elo_league
 
@@ -12,4 +13,4 @@ window.EloLeague = Ember.Application.create(
   LOG_TRANSITIONS_INTERNAL: true
 )
 
-EloLeague.ApplicationAdapter = DS.RESTAdapter.extend();
+EloLeague.ApplicationAdapter = DS.RESTAdapter.extend()

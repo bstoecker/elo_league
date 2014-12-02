@@ -1,0 +1,19 @@
+@import 'constants';
+
+.header {
+  left:0;
+  right:0;
+  height: $header-height;
+  background-color: #009900;
+}
+
+.header-elements {
+  margin-right: 5px;
+  margin-left: 5px;
+  height: $header-height;
+}
+
+.header-title {
+  float: left;
+  vertical-align: middle;
+}

@@ -7,6 +7,7 @@
     "handlebars": "latest",
     "ember": "~1.8.0",
     "ember-data": "~ 1.0.0-beta.11",
+    "ember-simple-auth": "latest",
     "jqueryui": "latest",
     "jquery-minicolors": "latest",
     "bootstrap": "latest",

@@ -1,6 +1,6 @@
 {
   "name": "jquery-minicolors",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "homepage": "https://github.com/claviska/jquery-minicolors",
   "authors": [
     "Cory LaViska"
@@ -22,11 +22,11 @@
     "test",
     "tests"
   ],
-  "_release": "2.1.8",
+  "_release": "2.1.9",
   "_resolution": {
     "type": "version",
-    "tag": "2.1.8",
-    "commit": "c8f40c2b668cbcdfd11e82f12eff51aa3b6785c0"
+    "tag": "2.1.9",
+    "commit": "776eda6f38a3ca2852dc8971d3b4b59501d3ffd5"
   },
   "_source": "git://github.com/claviska/jquery-minicolors.git",
   "_target": "*",

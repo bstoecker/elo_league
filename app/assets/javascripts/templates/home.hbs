@@ -1,34 +1,9 @@
-<div class="splash-container">
-  <div class="splash">
-    <img class="splash-pic" src="/Injixo_foosball.png"> </img>
-    <h1 class="splash-head">
-      Welcome
-    </h1>
-    <p class="splash-subhead">
-     Select a league or create your own to start tracking matches!
-    </p>
-      {{#link-to 'leagues' class="pure-button pure-button-primary"}}
-        Start
-      {{/link-to}}
-
-<div class="content-wrapper">
-  <div class="content">
-    <h2 class="content-head is-center">
-      How it works:
-    </h2>
-
-    <p>
-      A standard elo-value is assigned to each player before the first match that increases and decreases based on victories and defeats. In the stats view, you can check your current position and score in the overall ranking. It's that easy! Start your first match today!
-    </p>
-
-    <p>
-      (by) Lekealem Asong, David Diemer, Martin Eismann, Lars Enstipp, Miguel Gomez, Andreas Hoffmann, Bernhard Stöcker, Frank Trautmann
-    </p>
-
-    <div class="footer l-box is-center">
-      EloLeague. Made with love
-      span (c) injixo 2014
-    </div>
-  </div>
+<div class="elo-league-pic-container">
+  <img class="elo-league-pic-container" src="/Injixo_foosball.png"> </img>
 </div>
-
+<div class="leagues-container">
+  {{render 'leagues'}}
+</div>
+<div class="details">
+  {{outlet}}
+</div>
