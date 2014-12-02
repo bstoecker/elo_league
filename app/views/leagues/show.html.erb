@@ -1,0 +1,27 @@
+
+<table>
+  <tr>
+    <td>
+      Rank
+    </td>
+    <td>
+      Nickname
+    </td>
+    <td>
+      Current Elo
+    </td>
+  </tr>
+  <% @league.users.sort_by(&:current_elo).each.with_index do |user, i| %>
+    <tr>
+      <td>
+        <%= i + 1 %>
+      </td>
+      <td>
+        <%= user.nick_name %>
+      </td>
+      <td>
+        <%= user.current_elo.value.round(2) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

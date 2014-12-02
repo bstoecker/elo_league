@@ -1,0 +1,13 @@
+<h2> Your Leagues: </h2>
+<% current_user.leagues.each do |league| %>
+  <%= link_to league_path league do %>
+    <div class="league-container">
+      <div class="league-name-container">
+        <%= league.name %>
+      </div>
+      <div class="league-describtion-container">
+        <%= league.describtion %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

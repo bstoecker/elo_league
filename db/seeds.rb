@@ -8,15 +8,19 @@
 require 'active_record'
 
 ActiveRecord::Base.transaction do
-  league = League.create(
+  league1 = League.create(
     name: 'The L.O.E.G',
     describtion: 'We are looking for the best of the best of the best, Sir!!!'
   )
+  league2 = League.create(
+    name: 'The Yay League',
+    describtion: 'We are looking for the best of the best of the best, Sir!!!'
+  )
 
-  team1 = Team.create(name: 'Foofighters', league: league)
-  team2 = Team.create(name: 'Bloody Marys', league: league)
-  team3 = Team.create(name: 'Kamikaze', league: league)
-  team4 = Team.create(name: 'Yay', league: league)
+  team1 = Team.create(name: 'Foofighters', league: league1)
+  team2 = Team.create(name: 'Bloody Marys', league: league1)
+  team3 = Team.create(name: 'Kamikaze', league: league1)
+  team4 = Team.create(name: 'Yay', league: league1)
 
   user1 = User.create(
     first_name: 'Lekealem',
@@ -24,7 +28,7 @@ ActiveRecord::Base.transaction do
     nick_name: 'Leke',
     email: 'leke@example.com',
     password: 'fooBar1234',
-    league: league
+    leagues: [league1, league2]
   )
   user2 = User.create(
     first_name: 'Frank',
@@ -32,7 +36,7 @@ ActiveRecord::Base.transaction do
     nick_name: 'Frank the Tank',
     email: 'frank@example.com',
     password: 'fooBar1234',
-    league: league
+    leagues: [league1, league2]
   )
   user3 = User.create(
     first_name: 'Miguel',
@@ -40,7 +44,7 @@ ActiveRecord::Base.transaction do
     nick_name: 'Miguelsan',
     email: 'miguel@example.com',
     password: 'fooBar1234',
-    league: league
+    leagues: [league1, league2]
   )
   user4 = User.create(
     first_name: 'Andreas',
@@ -48,7 +52,7 @@ ActiveRecord::Base.transaction do
     nick_name: 'AH 47',
     email: 'andreas@example.com',
     password: 'fooBar1234',
-    league: league
+    leagues: [league1, league2]
   )
   user5 = User.create(
     first_name: 'Bernhard',
@@ -56,7 +60,7 @@ ActiveRecord::Base.transaction do
     nick_name: 'Et Stoecki',
     email: 'bernhard@example.com',
     password: 'fooBar1234',
-    league: league
+    leagues: [league1, league2]
   )
   user6 = User.create(
     first_name: 'David',
@@ -64,7 +68,7 @@ ActiveRecord::Base.transaction do
     nick_name: 'David',
     email: 'david@example.com',
     password: 'fooBar1234',
-    league: league
+    leagues: [league1, league2]
   )
   user7 = User.create(
     first_name: 'Lars',
@@ -72,7 +76,7 @@ ActiveRecord::Base.transaction do
     nick_name: 'Lars',
     email: 'lars@example.com',
     password: 'fooBar1234',
-    league: league
+    leagues: [league1, league2]
   )
   user8 = User.create(
     first_name: 'Martin',
@@ -80,7 +84,7 @@ ActiveRecord::Base.transaction do
     nick_name: 'Meismann',
     email: 'martin@example.com',
     password: 'fooBar1234',
-    league: league
+    leagues: [league1, league2]
   )
 
 
