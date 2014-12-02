@@ -16,6 +16,7 @@ class Result < ActiveRecord::Base
       result = Result.new(params)
       result.save!
       result.update_elo
+      result
     end
   end
 

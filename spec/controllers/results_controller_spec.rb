@@ -45,7 +45,7 @@ RSpec.describe Api::ResultsController, type: :controller do
         score1: 1,
         score2: 0
       }
-      post :create, league_id: league.id, result: params
+      post :create, league_id: league.id, result: params, format: :json
 
       expect(response.code).to eq '200'
     end

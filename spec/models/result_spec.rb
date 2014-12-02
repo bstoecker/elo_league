@@ -103,4 +103,18 @@ describe Result do
     end
     expect(other_team.current_elo.value).to be < 1500
   end
+
+  it 'returns the result' do
+    user_ids1 = users[0..1].map(&:id)
+    user_ids2 = users[2..3].map(&:id)
+    result = Result.create_from(
+        league: league,
+        user_ids1: user_ids1,
+        user_ids2: user_ids2,
+        score1: 1,
+        score2: 0,
+        date: Date.today + 1
+      )
+    expect(result).to eq Result.all.last
+  end
 end

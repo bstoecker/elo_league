@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'get /api/league/:id/users', type: :request do
 
   before do
-    allow_any_instance_of(Api::UsersController).to receive(:authenticate_user!)
+    allow_any_instance_of(UsersController).to receive(:authenticate_user!)
   end
 
   it 'returns the right users' do
@@ -29,7 +29,7 @@ describe 'get /api/league/:id/users', type: :request do
     users.each(&:save!)
 
     request_headers = { 'CONTENT_TYPE' => 'application/json' }
-    get "/api/users?league_id=#{league.id}", request_headers
+    get "/users.json?league_id=#{league.id}", request_headers
     expect(response.body).to be_json_eql(
       "{
         \"users\": [
