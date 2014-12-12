@@ -40,12 +40,15 @@ RSpec.describe Api::ResultsController, type: :controller do
       users.each(&:save!)
       params = {
         date: Date.today,
-        user_ids1: users[0..1],
-        user_ids2: users[2..3],
         score1: 1,
         score2: 0
       }
-      post :create, league_id: league.id, result: params, format: :json
+      post :create,
+           league_id: league.id,
+           result: params,
+           user_ids1: users[0..1],
+           user_ids2: users[2..3],
+           format: :json
 
       expect(response.code).to eq '200'
     end

@@ -1,4 +1,5 @@
 class Result < ActiveRecord::Base
+  attr_accessor :user_ids1, :user_ids2
   belongs_to :league
   default_scope -> { order('date ASC') }
   after_save :update_elo

@@ -46,9 +46,13 @@ class ResultsController < ApplicationController
 
   def result_params
     result_args = params.require(:result)
-    [:score1, :score2, :user_ids1, :user_ids2].reduce({}) do |a, e|
+    [:score1, :score2].reduce({}) do |a, e|
       a.merge(e => result_args[e])
-    end.merge(league: @league)
+    end.merge(
+      league: @league,
+      user_ids1: params[:user_ids1],
+      user_ids2: params[:user_ids2]
+    )
   end
 
   def set_result
