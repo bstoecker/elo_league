@@ -27,16 +27,13 @@ class LeaguesController < ApplicationController
 
   # POST /leagues.json
   def create
-    @league = League.new(league_params)
-    @league.users = [current_user]
-
-    if @league.save
+    if new_league.save
       respond_to do |format|
         format.html { redirect_to action: 'index', status: 303 }
         format.json do
           render json: LeagueSerializer.new(@league, root: 'league').to_json
         end
-    end
+      end
     else
       render json: @league.errors, status: :unprocessable_entity
     end
@@ -58,6 +55,12 @@ class LeaguesController < ApplicationController
   end
 
   private
+
+  def new_league
+    @league = League.new(league_params)
+    @league.users = [current_user]
+    @league
+  end
 
   def set_league
     @league = League.find(params[:id])

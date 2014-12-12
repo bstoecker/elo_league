@@ -29,19 +29,19 @@ class User < ActiveRecord::Base
 
   def won_matches(league_id)
     matches(league_id) do |team, results|
-      results.select { |r| r.is_winner?(team.id) }
+      results.select { |r| r.winner?(team.id) }
     end
   end
 
   def draw_matches(league_id)
-    matches(league_id) do |team, results|
-      results.select { |r| r.is_draw? }
+    matches(league_id) do |_team, results|
+      results.select(&:draw?)
     end
   end
 
   def lost_matches(league_id)
     matches(league_id) do |team, results|
-      results.select { |r| r.is_looser?(team.id) }
+      results.select { |r| r.looser?(team.id) }
     end
   end
 

@@ -2,7 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Api::LeaguesController, type: :controller do
 
-  before { allow(controller).to receive(:authenticate_user!) }
+  let(:user) { FactoryGirl.build :user }
+
+  before do
+    user.save!
+    allow(controller).to receive(:authenticate_user!)
+    allow(controller).to receive(:current_user).and_return(user)
+  end
 
   describe 'GET index' do
     it 'assigns @league' do
@@ -20,9 +26,9 @@ RSpec.describe Api::LeaguesController, type: :controller do
              name: 'The League of Extraordinary Gentlemen',
              describtion: 'yay'
            }
-      expect(
-        League.find_by(name: 'The League of Extraordinary Gentlemen')
-      ).not_to be_nil
+      league = League.find_by(name: 'The League of Extraordinary Gentlemen')
+      expect(league).not_to be_nil
+      expect(league.users).to eq [user]
     end
   end
 end

@@ -20,7 +20,7 @@ class Result < ActiveRecord::Base
     end
   end
 
-  def is_winner?(team_id)
+  def winner?(team_id)
     case
     when team_id1 == team_id then score1 > score2
     when team_id2 == team_id then score1 < score2
@@ -28,12 +28,12 @@ class Result < ActiveRecord::Base
     end
   end
 
-  def is_draw?
+  def draw?
     score1 == score2
   end
 
-  def is_looser?(team_id)
-    !(is_winner?(team_id) || is_draw?)
+  def looser?(team_id)
+    !(winner?(team_id) || draw?)
   end
 
   def update_elo
