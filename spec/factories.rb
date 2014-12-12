@@ -20,8 +20,8 @@ FactoryGirl.define do
   end
 
   factory :league do
-    name        { 'Elo League' }
-    describtion { 'First test league' }
+    name              { 'Elo League' }
+    describtion       { 'First test league' }
   end
 
   factory :result do

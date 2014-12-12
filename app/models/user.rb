@@ -4,30 +4,50 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   include ActiveModel::Serializers::JSON
-  default_scope -> { order('id ASC') }
+  default_scope -> { order('last_name ASC') }
   has_and_belongs_to_many :teams
   has_many :elo_user_values
   has_and_belongs_to_many :leagues
-  after_create :create_initial_elo
 
-  def create_or_update_elo_by_diff(elo_diff, date)
-    item = EloUserValue.find_or_initialize_by(user: self, date: date)
-    item.update_attributes(value: current_elo.value + elo_diff)
+  def create_or_update_elo_by_diff(elo_diff, date, league_id)
+    item = EloUserValue.find_or_initialize_by(
+      user: self, date: date, league_id: league_id
+    )
+    item.update_attributes(value: current_elo(league_id) + elo_diff)
   end
 
-  def current_elo
-    elo_user_values.last
+  def current_elo(league_id)
+    elo = elo_user_values.where(league_id: league_id).last
+    elo ? elo.value : 1500
+  end
+
+  def matches(league_id, &block)
+    teams.where(league_id: league_id).flat_map do |team|
+      block_given? ? block.call(team, team.results) : team.results
+    end
+  end
+
+  def won_matches(league_id)
+    matches(league_id) do |team, results|
+      results.select { |r| r.is_winner?(team.id) }
+    end
+  end
+
+  def draw_matches(league_id)
+    matches(league_id) do |team, results|
+      results.select { |r| r.is_draw? }
+    end
+  end
+
+  def lost_matches(league_id)
+    matches(league_id) do |team, results|
+      results.select { |r| r.is_looser?(team.id) }
+    end
   end
 
   def self.update_users_by_team(team, elo_difference, date)
     team.users.each do |user|
-      user.create_or_update_elo_by_diff(elo_difference, date)
+      user.create_or_update_elo_by_diff(elo_difference, date, team.league_id)
     end
-  end
-
-  private
-
-  def create_initial_elo
-    elo_user_values.create(date: Date.today, value: 1500, league_id: league_id)
   end
 end

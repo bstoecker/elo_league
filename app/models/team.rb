@@ -21,6 +21,10 @@ class Team < ActiveRecord::Base
     )
   end
 
+  def results
+    Result.where("team_id1 = #{id} OR team_id2 = #{id}")
+  end
+
   private
 
   def create_initial_elo

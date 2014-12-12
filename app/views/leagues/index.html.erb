@@ -11,3 +11,10 @@
     </div>
   <% end %>
 <% end %>
+
+<h2> Create a new league </h2>
+<%= form_for @league = League.new, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :describtion, size: "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>

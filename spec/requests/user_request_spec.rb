@@ -38,16 +38,14 @@ describe 'get /api/league/:id/users', type: :request do
             \"league_ids\": [#{league.id}],
             \"first_name\": \"Esmeralda\",
             \"last_name\": \"Dennsiewilja\",
-            \"nick_name\": \"Esmeralda\",
-            \"current_elo_value\": 1500.0
+            \"nick_name\": \"Esmeralda\"
           },
           {
             \"id\": \"#{users.second.id}\",
             \"league_ids\": [#{league.id}],
             \"first_name\": \"Rainsch\",
             \"last_name\": \"Heisst\",
-            \"nick_name\": \"Rainsch\",
-            \"current_elo_value\": 1500.0
+            \"nick_name\": \"Rainsch\"
           }
         ]
       }"

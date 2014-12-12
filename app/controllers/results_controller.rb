@@ -18,7 +18,9 @@ class ResultsController < ApplicationController
   def create
     @result = Result.create_from(result_params)
     respond_to do |format|
-      format.html
+      format.html do
+        redirect_to league_url @league.id
+      end
       format.json do
         render json: ActiveModel::ResultSerializer.new(
           @result, root: 'result'
@@ -46,12 +48,26 @@ class ResultsController < ApplicationController
 
   def result_params
     result_args = params.require(:result)
-    [:score1, :score2, :user_ids1, :user_ids2, :date].reduce({}) do |a, e|
-      a.merge(e => result_args[e])
+    args = [:score1, :score2].reduce({}) do |a, e|
+      a.merge(e => result_args[e].to_i)
     end.merge(league: @league)
+    args.merge(
+      user_ids1: params[:user_ids1].map(&:to_i),
+      user_ids2: params[:user_ids2].map(&:to_i),
+      date: Date.today
+    )
   end
 
   def set_result
     @result.find_by(id: params[:id])
+  end
+
+  def redirect_to_league
+    redirect_to(
+      controller: 'leagues',
+      action: 'show',
+      status: 303,
+      league_id: @league.id
+    )
   end
 end

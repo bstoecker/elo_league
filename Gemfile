@@ -14,6 +14,8 @@ gem 'font-awesome-rails'
 gem 'handlebars_assets'
 gem 'uglifier'
 gem 'emblem-rails'
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
 
 gem 'devise'
 

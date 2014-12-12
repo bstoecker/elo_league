@@ -1,6 +1,7 @@
 class Result < ActiveRecord::Base
   belongs_to :league
   default_scope -> { order('date ASC') }
+  after_save :update_elo
 
   def self.create_from(params)
     league = params.fetch(:league)
@@ -15,9 +16,24 @@ class Result < ActiveRecord::Base
     transaction do
       result = Result.new(params)
       result.save!
-      result.update_elo
       result
     end
+  end
+
+  def is_winner?(team_id)
+    case
+    when team_id1 == team_id then score1 > score2
+    when team_id2 == team_id then score1 < score2
+    else fail 'team was not included in match'
+    end
+  end
+
+  def is_draw?
+    score1 == score2
+  end
+
+  def is_looser?(team_id)
+    !(is_winner?(team_id) || is_draw?)
   end
 
   def update_elo

@@ -1,4 +1,6 @@
+<h1> <%=@league.name %> </h1>
 
+<h2> League's standing </h2>
 <table>
   <tr>
     <td>
@@ -10,8 +12,20 @@
     <td>
       Current Elo
     </td>
+    <td>
+      Matches
+    </td>
+    <td>
+      Won
+    </td>
+    <td>
+      Draw
+    </td>
+    <td>
+      Lost
+    </td>
   </tr>
-  <% @league.users.sort_by(&:current_elo).each.with_index do |user, i| %>
+  <% @league.users.sort_by { |u| -u.current_elo(@league.id) }.each.with_index do |user, i| %>
     <tr>
       <td>
         <%= i + 1 %>
@@ -20,8 +34,69 @@
         <%= user.nick_name %>
       </td>
       <td>
-        <%= user.current_elo.value.round(2) %>
+        <%= user.current_elo(@league).round(2) %>
+      </td>
+      <td>
+        <%= user.matches(@league.id).size %>
+      </td>
+      <td>
+        <%= user.won_matches(@league.id).size %>
+      </td>
+      <td>
+        <%= user.draw_matches(@league.id).size %>
+      </td>
+      <td>
+        <%= user.lost_matches(@league.id).size %>
       </td>
     </tr>
   <% end %>
 </table>
+
+<h2> Latest Results </h2>
+
+
+<h2> Add new result </h2>
+
+<%= form_for @result ||= Result.new, url: results_path do |f| %>
+  <%= hidden_field_tag :league_id, @league.id %>
+  <table>
+    <tr>
+      <td>
+        <p> Team 1 <p>
+      </td>
+      <td></td>
+      <td>
+        <p> Team 2 </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <% @league.users.each do |user| %>
+          <%= check_box_tag "user_ids1[]", user.id  %>
+          <%= label_tag user.first_name  %> "<%= label_tag user.nick_name  %>" <%= label_tag user.last_name  %>
+          <br />
+        <% end %>
+      </td>
+      <td> VS </td>
+      <td>
+        <% @league.users.each do |user| %>
+          <%= check_box_tag "user_ids2[]", user.id  %>
+          <%= label_tag user.first_name  %>" <%= label_tag user.nick_name  %>" <%= label_tag user.last_name  %>
+          <br />
+        <% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= f.text_field :score1 %>
+      </td>
+      <td> : </td>
+      <td>
+        <%= f.text_field :score2 %>
+      </td>
+    </tr>
+  </table>
+  <%= f.submit "Create" %>
+<% end %>

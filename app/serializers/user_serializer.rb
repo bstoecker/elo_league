@@ -3,7 +3,6 @@ class UserSerializer < ActiveModel::Serializer
              :first_name,
              :last_name,
              :nick_name,
-             :current_elo_value,
              :league_ids
 
   def league_id
@@ -12,9 +11,5 @@ class UserSerializer < ActiveModel::Serializer
 
   def id
     object.id.to_s
-  end
-
-  def current_elo_value
-    object.current_elo.value
   end
 end
