@@ -52,9 +52,6 @@
   <% end %>
 </table>
 
-<h2> Latest Results </h2>
-
-
 <h2> Add new result </h2>
 
 <%= form_for @result ||= Result.new, url: results_path do |f| %>
@@ -100,3 +97,55 @@
   </table>
   <%= f.submit "Create" %>
 <% end %>
+
+<h2> Invite to league </h2>
+
+<%= form_for @invitation ||= Invitation.new, url: invitations_path do |f| %>
+
+<% end %>
+
+
+
+<h2> Latest Results </h2>
+<table>
+  <tr>
+    <td>
+      <p> MatchDay <p>
+    </td>
+    <td>
+      <p> Team 1 <p>
+    </td>
+    <td></td>
+    <td>
+      <p> Team 2 </p>
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <% @league.results.limit(25).each do |result| %>
+    <tr>
+      <td>
+        <%= result.date%>
+      </td>
+      <td>
+        <div>
+          <% result.team1.users.each do |user| %>
+            <%= user.nick_name %>
+          <% end %>
+        </div>
+      </td>
+      <td> VS </td>
+      <td>
+        <div>
+          <% result.team2.users.each do |user| %>
+            <%= user.nick_name %>
+          <% end %>
+        </div>
+      </td>
+      <td> <%= result.score1.to_i %> </td>
+      <td> : </td>
+      <td> <%= result.score2.to_i %> </td>
+    </tr>
+  <% end %>
+</table>

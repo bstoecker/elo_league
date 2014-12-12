@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :teams, except: [:new, :edit]
   resources :users, only: [:destroy, :index, :show]
   resources :results, except: [:new, :edit]
+  resources :invitations, only: [:new, :destroy]
 end

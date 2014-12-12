@@ -51,7 +51,8 @@ class ResultsController < ApplicationController
     end.merge(
       league: @league,
       user_ids1: params[:user_ids1],
-      user_ids2: params[:user_ids2]
+      user_ids2: params[:user_ids2],
+      date: Date.today
     )
   end
 

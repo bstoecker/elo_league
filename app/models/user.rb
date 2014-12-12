@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :teams
   has_many :elo_user_values
   has_and_belongs_to_many :leagues
+  has_many :invitations
+
+  validates :email, uniqueness: true
+  validates :nick_name, uniqueness: true
 
   def create_or_update_elo_by_diff(elo_diff, date, league_id)
     item = EloUserValue.find_or_initialize_by(

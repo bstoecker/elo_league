@@ -1,7 +1,7 @@
 class Result < ActiveRecord::Base
   attr_accessor :user_ids1, :user_ids2
   belongs_to :league
-  default_scope -> { order('date ASC') }
+  default_scope -> { order('date ASC, created_at ASC') }
   after_save :update_elo
 
   def self.create_from(params)
@@ -41,5 +41,13 @@ class Result < ActiveRecord::Base
     team1 = Team.find_by(id: team_id1)
     team2 = Team.find_by(id: team_id2)
     EloTeamValue.update_for(team1, team2, score1, score2, date)
+  end
+
+  def team1
+    Team.find(team_id1)
+  end
+
+  def team2
+    Team.find(team_id2)
   end
 end
