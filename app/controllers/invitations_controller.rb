@@ -1,5 +1,6 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_invitation, only: [:destroy, :confirm]
   before_action :set_league, only: [:create]
 
   def create
@@ -14,13 +15,25 @@ class InvitationsController < ApplicationController
     end
   end
 
+  def confirm
+    @league_id = @invitation.league_id
+    @invitation.confirm
+    respond_to do |format|
+      format.html { redirect_to league_url @league.id }
+      format.json { head :no_content }
+    end
+  end
+
   def destroy
-    @invitation = Invitation.find(params[:id])
     @invitation.destroy if @invitation
     head :no_content
   end
 
   private
+
+  def set_invitation
+    @invitation = Invitation.find(params[:id])
+  end
 
   def invitation_json
     ActiveModel::InvitationSerializer.new(

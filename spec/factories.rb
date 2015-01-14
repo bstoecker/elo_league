@@ -11,12 +11,13 @@ FactoryGirl.define do
   end
 
   factory :user do
-    first_name          { 'Kenny' }
-    last_name           { 'McCormack' }
-    nick_name           { 'Kenny' }
-    sequence(:email)    { |n| "Kenny.McCormack#{n}@southpark.com" }
-    password            { 'f00BarBaz' }
-    teams               { [] }
+    first_name           { 'Kenny' }
+    last_name            { 'McCormack' }
+    sequence(:nick_name) { |n| "Kenny_#{n}" }
+    sequence(:email)     { |n| "Kenny.McCormack#{n}@southpark.com" }
+    password             { 'f00BarBaz' }
+    teams                { [] }
+    leagues              { [] }
   end
 
   factory :league do

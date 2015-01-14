@@ -5,7 +5,7 @@ class CreateInvitationTable < ActiveRecord::Migration
       t.integer :league_id
       t.integer :inviter_id
 
-      t.time_stamps
+      t.timestamps
     end
   end
 end
