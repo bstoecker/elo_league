@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   include ActiveModel::Serializers::JSON
   default_scope -> { order('last_name ASC') }
-  has_and_belongs_to_many :teams
-  has_many :elo_user_values
+  has_and_belongs_to_many :teams, dependent: :destroy
+  has_many :elo_user_values, dependent: :destroy
   has_and_belongs_to_many :leagues
-  has_many :invitations
+  has_many :invitations, dependent: :destroy
 
   validates :email, uniqueness: true
   validates :nick_name, uniqueness: true

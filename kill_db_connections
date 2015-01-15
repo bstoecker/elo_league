@@ -1,0 +1,12 @@
+#!/bin/bash
+
+current_user=$USER
+database_name=$1
+
+echo "Killing active connections for database '$database_name' and user '$current_user' ..."
+where="where pg_stat_activity.datname = '$database_name'"
+cat <<-EOF | psql -U $current_user -d postgres
+SELECT pg_terminate_backend(pg_stat_activity.pid)
+FROM pg_stat_activity
+${where}
+EOF

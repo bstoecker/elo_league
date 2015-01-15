@@ -1,7 +1,7 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_invitation, only: [:destroy, :confirm]
-  before_action :set_league, only: [:create]
+  before_action :set_invitation, only: [:destroy, :update]
+  before_action :set_league, only: [:create, :new]
 
   def create
     @invitation = Invitation.new(invitations_params)
@@ -15,18 +15,25 @@ class InvitationsController < ApplicationController
     end
   end
 
-  def confirm
-    @league_id = @invitation.league_id
+  def new # html only
+  end
+
+  def update
+    @league = @invitation.league
     @invitation.confirm
     respond_to do |format|
-      format.html { redirect_to league_url @league.id }
+      format.html {
+        redirect_to league_url @league.id }
       format.json { head :no_content }
     end
   end
 
   def destroy
     @invitation.destroy if @invitation
-    head :no_content
+    respond_to do |format|
+      format.html { redirect_to leagues_url }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -42,7 +49,15 @@ class InvitationsController < ApplicationController
   end
 
   def invitations_params
-    args = params.require(:invitation)
-    args.permit(:user_id, :inviter_id)
+    respond_to do |format|
+      format.html do
+        if params[:user] && params[:user][:email]
+          user = User.find_by(email: params[:user][:email])
+          params.merge!(user_id: user.id)
+        end
+      end
+    end
+    args = (params[:invitation] && params.require(:invitation)) || params
+    args.permit(:user_id, :inviter_id, :league_id)
   end
 end

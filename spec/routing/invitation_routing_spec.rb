@@ -10,9 +10,9 @@ describe 'invitations routes', type: :routing do
   end
 
   it 'routes to invitations#confirm with json' do
-    expect(put: '/invitation/42.json').to route_to(
+    expect(put: '/invitations/42.json').to route_to(
       controller: 'invitations',
-      action: 'confirm',
+      action: 'update',
       format: 'json',
       id: '42'
     )
@@ -32,6 +32,14 @@ describe 'invitations routes', type: :routing do
       action: 'destroy',
       format: 'json',
       id: '42'
+    )
+  end
+
+  it 'routes to invitations#new with html' do
+    expect(get: '/invitations/new.html').to route_to(
+      controller: 'invitations',
+      action: 'new',
+      format: 'html'
     )
   end
 

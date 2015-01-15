@@ -99,12 +99,7 @@
 <% end %>
 
 <h2> Invite to league </h2>
-
-<%= form_for @invitation ||= Invitation.new, url: invitations_path do |f| %>
-
-<% end %>
-
-
+<%= link_to 'Invitation', controller: "invitations", action: "new", league_id: @league.id, :class=>"new-invitation-link" %>
 
 <h2> Latest Results </h2>
 <table>

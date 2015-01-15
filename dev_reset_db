@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Simple Bash Script which recreates the development database with all migrations.
+# Since active database connections will disturb the creation process,
+# the script is trying to kill all active database connections previously.
+#
+# Usage:
+#   ./dev_resetdb [demodata [tenant_id] [interval]]
+#
+# If parameter "demodata" is given, the script also runs db:create_demo_data
+# rake task, so the newly created database will contain some data afterwards.
+#
+# When using the "demodata" parameter you can add an optional parameter with a
+# custom tenant ID - this will be used when creating the demo data.
+#
+# Enjoy!
+#
+# (pd)
+
+# ./kill_db_connections elo_league_development
+# ./kill_db_connections elo_league_test
+
+# echo "Resetting elo database..."
+# bundle exec rake db:drop db:create db:migrate db:seed
+# bundle exec rake db:migrate RAILS_ENV=test
+

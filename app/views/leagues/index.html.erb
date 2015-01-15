@@ -12,6 +12,26 @@
   <% end %>
 <% end %>
 
+<% if current_user.invitations.any? %>
+
+  <h2> Your invited for the following league(s) </h2>
+
+  <div class="invitation-container">
+    <% current_user.invitations.each do |invitation| %>
+      <div class="invitation-item">
+        <span> You are invited to the league </span>
+        <span> <%= "\"#{invitation.league.name}\"" %> </span>
+        <span> by </span>
+        <span> <%= "#{invitation.inviter.first_name} #{invitation.inviter.last_name}" %>  </span>
+      </div>
+      <%= button_to "Accept", invitation_path(invitation.id), method: :put %>
+      <%= button_to "Decline", invitation_path(invitation.id),
+      :class => "invitation-decline-btn", :method => :delete %>
+    <% end %>
+  </div>
+
+<% end %>
+
 <h2> Create a new league </h2>
 <%= form_for @league = League.new, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
   <%= f.text_field :name %>
