@@ -22,11 +22,6 @@ test: &test
   host: localhost
   database: elo_league_test
 
-production:
-  <<: *defaults
-  database: elo_league_test
-
-
 # PostgreSQL. Versions 8.2 and up are supported.
 #
 # Install the pg driver:
