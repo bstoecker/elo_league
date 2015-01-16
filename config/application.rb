@@ -22,6 +22,10 @@ module EloLeague
 
     config.assets.initialize_on_precompile = false
 
+    config.generators do |g|
+        g.assets false
+    end
+
     # handlebars_assets gem wants to know whether it is dealing with ember
     HandlebarsAssets::Config.ember = true
     # We want to use the bower version of handlebars since that seems to be
