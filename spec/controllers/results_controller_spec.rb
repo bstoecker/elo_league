@@ -45,8 +45,8 @@ RSpec.describe ResultsController, type: :controller do
       post :create,
            league_id: league.id,
            result: params,
-           user_ids1: users[0..1],
-           user_ids2: users[2..3],
+           user_ids1: users[0..1].map(&:id),
+           user_ids2: users[2..3].map(&:id),
            format: :json
 
       expect(response.code).to eq '200'

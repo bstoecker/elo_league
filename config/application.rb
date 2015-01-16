@@ -20,7 +20,7 @@ module EloLeague
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.assets.initialize_on_precompile = true
+    config.assets.initialize_on_precompile = false
 
     # handlebars_assets gem wants to know whether it is dealing with ember
     HandlebarsAssets::Config.ember = true

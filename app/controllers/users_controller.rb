@@ -41,7 +41,6 @@ class UsersController < ApplicationController
   # POST league/:league_id/users.json
   def create
     @user = User.new(user_params.merge(league: @league))
-
     if @user.save
       render json: UserSerializer.new(@user, root: 'user').to_json
     else

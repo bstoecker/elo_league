@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20141212150544) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "elo_team_values", force: true do |t|
+  create_table "elo_team_values", force: :cascade do |t|
     t.date     "date"
     t.float    "value"
     t.integer  "league_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141212150544) do
     t.datetime "updated_at"
   end
 
-  create_table "elo_user_values", force: true do |t|
+  create_table "elo_user_values", force: :cascade do |t|
     t.date     "date"
     t.float    "value"
     t.integer  "league_id"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20141212150544) do
     t.datetime "updated_at"
   end
 
-  create_table "invitations", force: true do |t|
+  create_table "invitations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "league_id"
     t.integer  "inviter_id"
@@ -42,21 +42,21 @@ ActiveRecord::Schema.define(version: 20141212150544) do
     t.datetime "updated_at"
   end
 
-  create_table "leagues", force: true do |t|
+  create_table "leagues", force: :cascade do |t|
     t.string   "name"
     t.string   "describtion"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "leagues_users", force: true do |t|
+  create_table "leagues_users", force: :cascade do |t|
     t.integer "user_id"
     t.integer "league_id"
   end
 
   add_index "leagues_users", ["league_id", "user_id"], name: "index_leagues_users_on_league_id_and_user_id", using: :btree
 
-  create_table "results", force: true do |t|
+  create_table "results", force: :cascade do |t|
     t.integer  "league_id"
     t.float    "score1"
     t.float    "score2"
@@ -67,21 +67,21 @@ ActiveRecord::Schema.define(version: 20141212150544) do
     t.date     "date"
   end
 
-  create_table "teams", force: true do |t|
+  create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.integer  "league_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "teams_users", id: false, force: true do |t|
+  create_table "teams_users", id: false, force: :cascade do |t|
     t.integer "team_id"
     t.integer "user_id"
   end
 
   add_index "teams_users", ["user_id", "team_id"], name: "index_teams_users_on_user_id_and_team_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "nick_name"

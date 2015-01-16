@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :invitations, dependent: :destroy
 
   validates :email, uniqueness: true
-  validates :nick_name, uniqueness: true
+  validates :nick_name, uniqueness: true, presence: true
 
   def create_or_update_elo_by_diff(elo_diff, date, league_id)
     item = EloUserValue.find_or_initialize_by(

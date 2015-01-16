@@ -3,6 +3,12 @@ require 'rails_helper'
 describe User do
   let(:today) { Date.new(2014) }
 
+  describe 'validations' do
+    let(:user) { FactoryGirl.build :user }
+    subject { user }
+    pending { should validate_presence_of(:nick_name) }
+  end
+
   describe '.update_users_by_team' do
     let(:league) { FactoryGirl.build :league }
     let(:team) { FactoryGirl.build :team, league: league }
