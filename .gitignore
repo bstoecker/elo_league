@@ -16,5 +16,8 @@
 /log/*.log
 /tmp
 
+# Ignore precompiled asset stuff
+/public/assets
+
 # Ignore simplecov
 /coverage
