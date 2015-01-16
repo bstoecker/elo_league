@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'invitations routes', type: :routing do
-
   before do
     @routes = EloLeague::Application.routes
     allow_any_instance_of(
@@ -42,5 +41,4 @@ describe 'invitations routes', type: :routing do
       format: 'html'
     )
   end
-
 end

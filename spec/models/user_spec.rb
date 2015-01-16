@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe User do
-
   let(:today) { Date.new(2014) }
 
   describe '.update_users_by_team' do

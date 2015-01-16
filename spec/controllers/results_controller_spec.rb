@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::ResultsController, type: :controller do
-
+RSpec.describe ResultsController, type: :controller do
   before { allow(controller).to receive(:authenticate_user!) }
 
   describe 'GET index' do
@@ -53,5 +52,4 @@ RSpec.describe Api::ResultsController, type: :controller do
       expect(response.code).to eq '200'
     end
   end
-
 end

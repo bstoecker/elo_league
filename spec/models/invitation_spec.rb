@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Invitation do
-
   let(:league) { FactoryGirl.build :league }
   let(:inviter) { FactoryGirl.build :user }
   let(:user) { FactoryGirl.build :user }

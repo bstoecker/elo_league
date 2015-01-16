@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Result do
-
   let(:league) { FactoryGirl.build :league }
   let(:users) do
     4.times.map do |i|

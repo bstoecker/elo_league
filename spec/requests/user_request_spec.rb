@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'get /api/league/:id/users', type: :request do
-
   before do
     allow_any_instance_of(UsersController).to receive(:authenticate_user!)
   end
@@ -51,5 +50,4 @@ describe 'get /api/league/:id/users', type: :request do
       }"
     )
   end
-
 end

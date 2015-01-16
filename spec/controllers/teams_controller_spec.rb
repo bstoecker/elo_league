@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::TeamsController, type: :controller do
-
+RSpec.describe TeamsController, type: :controller do
   before { allow(controller).to receive(:authenticate_user!) }
 
   describe 'GET index' do

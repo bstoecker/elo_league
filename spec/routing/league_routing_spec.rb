@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'leagues routes', type: :routing do
-
   before do
     @routes = EloLeague::Application.routes
     allow_any_instance_of(

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Team do
-
   let(:today) { Date.new(2014) }
 
   describe '#create_or_update_elo' do

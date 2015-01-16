@@ -22,8 +22,7 @@ class InvitationsController < ApplicationController
     @league = @invitation.league
     @invitation.confirm
     respond_to do |format|
-      format.html {
-        redirect_to league_url @league.id }
+      format.html { redirect_to league_url @league.id }
       format.json { head :no_content }
     end
   end
@@ -51,13 +50,16 @@ class InvitationsController < ApplicationController
   def invitations_params
     respond_to do |format|
       format.html do
-        if params[:user] && params[:user][:email]
-          user = User.find_by(email: params[:user][:email])
-          params.merge!(user_id: user.id)
-        end
+        user_id_from_user_email_param
       end
     end
     args = (params[:invitation] && params.require(:invitation)) || params
     args.permit(:user_id, :inviter_id, :league_id)
+  end
+
+  def user_id_from_user_email_param
+    return if !params[:user] || !params[:user][:email]
+    user = User.find_by(email: params[:user][:email])
+    params.merge!(user_id: user.id)
   end
 end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::LeaguesController, type: :controller do
-
+RSpec.describe LeaguesController, type: :controller do
   let(:user) { FactoryGirl.build :user }
 
   before do

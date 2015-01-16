@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Elo do
-
   describe '#new_elo1 #new_elo2' do
     it 'increases the elo value, when first player wins' do
       elo = Elo.new(
@@ -48,8 +47,6 @@ describe Elo do
       )
       expect(elo1.new_elo1).to be > elo2.new_elo1
       expect(elo1.new_elo2).to be < elo2.new_elo2
-
     end
   end
-
 end

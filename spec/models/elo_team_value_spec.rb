@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe EloTeamValue do
-
   describe '.update_for' do
     let(:today) { Date.new(2014) }
     let(:team1) { FactoryGirl.build :team }
