@@ -1,1 +1,0 @@
-EloLeague.SessionsLoginController = Ember.ObjectController.extend
