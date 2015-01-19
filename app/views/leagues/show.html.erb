@@ -79,7 +79,7 @@
       <td>
         <% @league.users.each do |user| %>
           <%= check_box_tag "user_ids2[]", user.id  %>
-          <%= label_tag user.first_name  %>" <%= label_tag user.nick_name  %>" <%= label_tag user.last_name  %>
+          <%= label_tag user.first_name  %> "<%= label_tag user.nick_name  %>" <%= label_tag user.last_name  %>
           <br />
         <% end %>
       </td>
