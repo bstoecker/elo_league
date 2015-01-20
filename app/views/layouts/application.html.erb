@@ -12,18 +12,17 @@
   </head>
   <body>
     <div class="header">
-      <div class="header-title header-elements"> Elo-League </div>
-      <% if user_signed_in? %>
-        <%= link_to 'Edit account', edit_user_registration_path, :class=>"header-elements" %>
-        <%= link_to 'Sign out', "/logout", :method => :delete, :class=>"header-elements" %>
-
-      <% else %>
-        <%= link_to 'Sign in', new_user_session_path, :class=>"header-elements" %>
-        <%= link_to 'Sign up', new_user_registration_path, :class=>"header-elements" %>
-      <% end %>
-      <% if user_signed_in? %>
-        <%= link_to 'Leagues', leagues_path, :class=>"header-elements" %>
-      <% end %>
+      <div class="header-title"> Elo-League </div>
+      <div class="header-elements"> </div>
+        <% if user_signed_in? %>
+          <%= link_to 'Leagues', leagues_path, :class=>"header-elements header-main" %>
+          <%= link_to 'Sign out', "/logout", :method => :delete, :class=>"header-elements" %>
+          <%= link_to 'Account', edit_user_registration_path, :class=>"header-elements" %>
+        <% else %>
+          <%= link_to 'Sign in', new_user_session_path, :class=>"header-elements" %>
+          <%= link_to 'Sign up', new_user_registration_path, :class=>"header-elements" %>
+        <% end %>
+      </div>
     </div>
 
     <div class="page-content">

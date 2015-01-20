@@ -1,19 +1,42 @@
 @import 'constants';
 
 .header {
-  left:0;
-  right:0;
   height: $header-height;
   background-color: #009900;
+  font-size: 14pt;
+  font-weight: 200;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  
 }
 
 .header-elements {
-  margin-right: 10px;
-  margin-left: 10px;
+  color: #D8DCFF;
+  float: right;
+  margin: 0 2%;
   height: $header-height;
+  line-height: $header-height;
+  white-space: nowrap;
 }
 
 .header-title {
+  color: #82D173;
   float: left;
-  vertical-align: middle;
+  margin-left: 10px;
+  height: $header-height;
+  line-height: $header-height;
+  white-space: nowrap;
 }
+.header-main {
+  color: #D8DCFF;
+  float: left;
+  margin: 0 2%;
+  height: $header-height;
+  line-height: $header-height;
+  white-space: nowrap;
+}
+
+.header-elements:hover {
+  color: white;
+} 

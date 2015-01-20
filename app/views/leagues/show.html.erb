@@ -1,69 +1,75 @@
 <h1> <%=@league.name %> </h1>
 
-<h2> League's standing </h2>
-<table>
-  <tr>
-    <td>
-      Rank
-    </td>
-    <td>
-      Nickname
-    </td>
-    <td>
-      Current Elo
-    </td>
-    <td>
-      Matches
-    </td>
-    <td>
-      Won
-    </td>
-    <td>
-      Draw
-    </td>
-    <td>
-      Lost
-    </td>
-  </tr>
-  <% @league.users.sort_by { |u| -u.current_elo(@league.id) }.each.with_index do |user, i| %>
-    <tr>
-      <td>
-        <%= i + 1 %>
-      </td>
-      <td>
-        <%= user.nick_name %>
-      </td>
-      <td>
-        <%= user.current_elo(@league).round(2) %>
-      </td>
-      <td>
-        <%= user.matches(@league.id).size %>
-      </td>
-      <td>
-        <%= user.won_matches(@league.id).size %>
-      </td>
-      <td>
-        <%= user.draw_matches(@league.id).size %>
-      </td>
-      <td>
-        <%= user.lost_matches(@league.id).size %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div class="members">
+  <div class="standing">
+    <h2> Standing </h2>
+    <table class="standing-table">
+      <tr class="table-headings">
+        <td>
+          Rank
+        </td>
+        <td>
+          Nickname
+        </td>
+        <td>
+          Current Elo
+        </td>
+        <td>
+          Matches
+        </td>
+        <td>
+          Won
+        </td>
+        <td>
+          Draw
+        </td>
+        <td>
+          Lost
+        </td>
+      </tr>
+      <% @league.users.sort_by { |u| -u.current_elo(@league.id) }.each.with_index do |user, i| %>
+        <tr>
+          <td>
+            <%= i + 1 %>
+          </td>
+          <td>
+            <%= user.nick_name %>
+          </td>
+          <td>
+            <%= user.current_elo(@league).round(2) %>
+          </td>
+          <td>
+            <%= user.matches(@league.id).size %>
+          </td>
+          <td>
+            <%= user.won_matches(@league.id).size %>
+          </td>
+          <td>
+            <%= user.draw_matches(@league.id).size %>
+          </td>
+          <td>
+            <%= user.lost_matches(@league.id).size %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<%= link_to 'Invite someone to join this league!', controller: "invitations", action: "new", league_id: @league.id, :class=>"new-invitation-link" %>
+</div>
 
-<h2> Add new result </h2>
+<h2>Results</h2>
+<h3>Add new result</h2>
 
 <%= form_for @result ||= Result.new, url: results_path do |f| %>
   <%= hidden_field_tag :league_id, @league.id %>
   <table>
     <tr>
       <td>
-        <p> Team 1 <p>
+        <p class="table-headings"> Team 1 <p>
       </td>
       <td></td>
       <td>
-        <p> Team 2 </p>
+        <p class="table-headings"> Team 2 </p>
       </td>
     </tr>
 
@@ -98,21 +104,18 @@
   <%= f.submit "Create" %>
 <% end %>
 
-<h2> Invite to league </h2>
-<%= link_to 'Invitation', controller: "invitations", action: "new", league_id: @league.id, :class=>"new-invitation-link" %>
-
-<h2> Latest Results </h2>
+<h3> Latest Results </h3>
 <table>
   <tr>
     <td>
-      <p> MatchDay <p>
+      <p class="table-headings"> MatchDay </p>
     </td>
     <td>
-      <p> Team 1 <p>
+      <p class="table-headings"> Team 1 </p>
     </td>
     <td></td>
     <td>
-      <p> Team 2 </p>
+      <p class="table-headings"> Team 2 </p>
     </td>
     <td></td>
     <td></td>
