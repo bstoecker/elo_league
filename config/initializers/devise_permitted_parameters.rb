@@ -22,7 +22,8 @@ module DevisePermittedParameters
         :nick_name,
         :email,
         :password,
-        :password_confirmation
+        :password_confirmation,
+        :current_password
       )
     end
   end
@@ -35,7 +36,8 @@ module DevisePermittedParameters
         :nick_name,
         :email,
         :password,
-        :password_confirmation
+        :password_confirmation,
+        :current_password
       )
     end
   end

@@ -1,7 +1,7 @@
 class Result < ActiveRecord::Base
   attr_accessor :user_ids1, :user_ids2
   belongs_to :league
-  default_scope -> { order('date ASC, created_at ASC') }
+  default_scope -> { order('date DESC, created_at DESC') }
   after_save :update_elo
 
   def self.create_from(params)
