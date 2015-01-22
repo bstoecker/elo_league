@@ -38,8 +38,8 @@ describe User do
 
     it 'updates elo values correctly' do
       User.update_users_by_team(team, 5, Date.today)
-      expect(users.first.current_elo(team.league_id)).to eq 1515
-      expect(users.second.current_elo(team.league_id)).to eq 1505
+      expect(users.first.current_elo_value(team.league_id)).to eq 1515
+      expect(users.second.current_elo_value(team.league_id)).to eq 1505
     end
   end
 

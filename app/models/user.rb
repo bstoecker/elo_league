@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
     item = EloUserValue.find_or_initialize_by(
       user: self, date: date, league_id: league_id
     )
-    item.update_attributes(value: current_elo(league_id) + elo_diff)
+    item.update_attributes(value: current_elo_value(league_id) + elo_diff)
   end
 
-  def current_elo(league_id)
+  def current_elo_value(league_id)
     elo = elo_user_values.where(league_id: league_id).last
     elo ? elo.value : 1500
   end

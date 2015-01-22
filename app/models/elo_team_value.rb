@@ -3,13 +3,13 @@ class EloTeamValue < ActiveRecord::Base
   belongs_to :team, dependent: :destroy
 
   def self.update_for(team1, team2, score1, score2, date)
-    current_elo_team1 = team1.elo_team_values.last
-    current_elo_team2 = team2.elo_team_values.last
+    average_elo_value_team1 = team1.average_elo_value
+    average_elo_value_team2 = team2.average_elo_value
     elo = Elo.new(
       score1: score1,
       score2: score2,
-      current_elo1: current_elo_team1.value,
-      current_elo2: current_elo_team2.value
+      current_elo1: average_elo_value_team1,
+      current_elo2: average_elo_value_team2
     )
 
     update_teams(team1, team2, elo, date)
