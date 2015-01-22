@@ -22,128 +22,128 @@ ActiveRecord::Base.transaction do
   # team3 = Team.create(name: 'Kamikaze', league: league1)
   # team4 = Team.create(name: 'Yay', league: league1)
 
-user1 = User.create(
+# user1 = User.create(
+#     first_name: 'Lekealem',
+#     last_name: 'Asong',
+#     nick_name: 'Leke',
+#     email: 'leke@example.com',
+#     password: 'fooBar1234'
+#   )
+#   user2 = User.create(
+#     first_name: 'Frank',
+#     last_name: 'Trautmann',
+#     nick_name: 'Frank the Tank',
+#     email: 'frank@example.com',
+#     password: 'fooBar1234'
+#   )
+#   user3 = User.create(
+#     first_name: 'Philip',
+#     last_name: 'Arnreich',
+#     nick_name: 'Randomizer',
+#     email: 'philip@example.com',
+#     password: 'fooBar1234'
+#   )
+#   user4 = User.create(
+#     first_name: 'Andreas',
+#     last_name: 'Hoffmann',
+#     nick_name: 'AH 47',
+#     email: 'andreas@example.com',
+#     password: 'fooBar1234'
+#   )
+#   user5 = User.create(
+#     first_name: 'Bernhard',
+#     last_name: 'Stoecker',
+#     nick_name: 'Et Stoecki',
+#     email: 'bernhard@example.com',
+#     password: 'fooBar1234'
+#   )
+#   user6 = User.create(
+#     first_name: 'David',
+#     last_name: 'Diemer',
+#     nick_name: 'David',
+#     email: 'david@example.com',
+#     password: 'fooBar1234'
+#   )
+#   user7 = User.create(
+#     first_name: 'Lars',
+#     last_name: 'Enstipp',
+#     nick_name: 'Lars',
+#     email: 'lars@example.com',
+#     password: 'fooBar1234'
+#   )
+#   user8 = User.create(
+#     first_name: 'Jan',
+#     last_name: 'Zernisch',
+#     nick_name: 'Long Shot',
+#     email: 'jan@example.com',
+#     password: 'fooBar1234'
+#   )
+
+
+  user1 = User.create(
     first_name: 'Lekealem',
     last_name: 'Asong',
     nick_name: 'Leke',
     email: 'leke@example.com',
-    password: 'fooBar1234'
+    password: 'fooBar1234',
+    leagues: [league1, league2]
   )
   user2 = User.create(
     first_name: 'Frank',
     last_name: 'Trautmann',
     nick_name: 'Frank the Tank',
     email: 'frank@example.com',
-    password: 'fooBar1234'
+    password: 'fooBar1234',
+    leagues: [league1, league2]
   )
   user3 = User.create(
-    first_name: 'Philip',
-    last_name: 'Arnreich',
-    nick_name: 'Randomizer',
-    email: 'philip@example.com',
-    password: 'fooBar1234'
+    first_name: 'Miguel',
+    last_name: 'M',
+    nick_name: 'Miguelsan',
+    email: 'miguel@example.com',
+    password: 'fooBar1234',
+    leagues: [league1, league2]
   )
   user4 = User.create(
     first_name: 'Andreas',
     last_name: 'Hoffmann',
     nick_name: 'AH 47',
     email: 'andreas@example.com',
-    password: 'fooBar1234'
+    password: 'fooBar1234',
+    leagues: [league1, league2]
   )
   user5 = User.create(
     first_name: 'Bernhard',
     last_name: 'Stoecker',
     nick_name: 'Et Stoecki',
     email: 'bernhard@example.com',
-    password: 'fooBar1234'
+    password: 'fooBar1234',
+    leagues: [league1, league2]
   )
   user6 = User.create(
     first_name: 'David',
     last_name: 'Diemer',
     nick_name: 'David',
     email: 'david@example.com',
-    password: 'fooBar1234'
+    password: 'fooBar1234',
+    leagues: [league1, league2]
   )
   user7 = User.create(
     first_name: 'Lars',
     last_name: 'Enstipp',
     nick_name: 'Lars',
     email: 'lars@example.com',
-    password: 'fooBar1234'
+    password: 'fooBar1234',
+    leagues: [league1, league2]
   )
   user8 = User.create(
-    first_name: 'Jan',
-    last_name: 'Zernisch',
-    nick_name: 'Long Shot',
-    email: 'jan@example.com',
-    password: 'fooBar1234'
+    first_name: 'Martin',
+    last_name: 'Eismann',
+    nick_name: 'Meismann',
+    email: 'martin@example.com',
+    password: 'fooBar1234',
+    leagues: [league1, league2]
   )
-
-
-  # user1 = User.create(
-  #   first_name: 'Lekealem',
-  #   last_name: 'Asong',
-  #   nick_name: 'Leke',
-  #   email: 'leke@example.com',
-  #   password: 'fooBar1234',
-  #   leagues: [league1, league2]
-  # )
-  # user2 = User.create(
-  #   first_name: 'Frank',
-  #   last_name: 'Trautmann',
-  #   nick_name: 'Frank the Tank',
-  #   email: 'frank@example.com',
-  #   password: 'fooBar1234',
-  #   leagues: [league1, league2]
-  # )
-  # user3 = User.create(
-  #   first_name: 'Miguel',
-  #   last_name: 'M',
-  #   nick_name: 'Miguelsan',
-  #   email: 'miguel@example.com',
-  #   password: 'fooBar1234',
-  #   leagues: [league1, league2]
-  # )
-  # user4 = User.create(
-  #   first_name: 'Andreas',
-  #   last_name: 'Hoffmann',
-  #   nick_name: 'AH 47',
-  #   email: 'andreas@example.com',
-  #   password: 'fooBar1234',
-  #   leagues: [league1, league2]
-  # )
-  # user5 = User.create(
-  #   first_name: 'Bernhard',
-  #   last_name: 'Stoecker',
-  #   nick_name: 'Et Stoecki',
-  #   email: 'bernhard@example.com',
-  #   password: 'fooBar1234',
-  #   leagues: [league1, league2]
-  # )
-  # user6 = User.create(
-  #   first_name: 'David',
-  #   last_name: 'Diemer',
-  #   nick_name: 'David',
-  #   email: 'david@example.com',
-  #   password: 'fooBar1234',
-  #   leagues: [league1, league2]
-  # )
-  # user7 = User.create(
-  #   first_name: 'Lars',
-  #   last_name: 'Enstipp',
-  #   nick_name: 'Lars',
-  #   email: 'lars@example.com',
-  #   password: 'fooBar1234',
-  #   leagues: [league1, league2]
-  # )
-  # user8 = User.create(
-  #   first_name: 'Martin',
-  #   last_name: 'Eismann',
-  #   nick_name: 'Meismann',
-  #   email: 'martin@example.com',
-  #   password: 'fooBar1234',
-  #   leagues: [league1, league2]
-  # )
 
 
 
