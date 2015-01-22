@@ -5,6 +5,12 @@ FactoryGirl.define do
     value         { 1500 }
   end
 
+  factory :elo_user_value do
+    user          { FactoryGirl.build :user }
+    date          { Date.today }
+    value         { 1500 }
+  end
+
   factory :team do
     league        { FactoryGirl.build :league }
     name          { 'Foo Fighters' }
