@@ -128,7 +128,8 @@
       </td>
       <td>
         <div>
-          <% result.team1.users.each do |user| %>
+          <% result.team1.users.each.with_index do |user, i| %>
+            <%= i == 0 ? "" : " / " %>
             <%= user.nick_name %>
           <% end %>
         </div>
@@ -136,7 +137,8 @@
       <td> VS </td>
       <td>
         <div>
-          <% result.team2.users.each do |user| %>
+          <% result.team2.users.each.with_index do |user, i| %>
+            <%= i == 0 ? "" : " / " %>
             <%= user.nick_name %>
           <% end %>
         </div>
