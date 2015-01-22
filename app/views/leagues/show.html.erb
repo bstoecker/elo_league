@@ -27,7 +27,7 @@
           Lost
         </td>
       </tr>
-      <% @league.users.sort_by { |u| -u.current_elo(@league.id) }.each.with_index do |user, i| %>
+      <% @league.users.sort_by { |u| -u.current_elo_value(@league.id) }.each.with_index do |user, i| %>
         <tr>
           <td>
             <%= i + 1 %>
@@ -36,7 +36,7 @@
             <%= user.nick_name %>
           </td>
           <td>
-            <%= user.current_elo(@league).round(2) %>
+            <%= user.current_elo_value(@league).round(2) %>
           </td>
           <td>
             <%= user.matches(@league.id).size %>

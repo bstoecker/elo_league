@@ -13,6 +13,11 @@ class Team < ActiveRecord::Base
     elo_team_values.last
   end
 
+  def average_elo_value
+    number_of_users = users.any? ? users.size : 1
+    users.map { |u| u.current_elo_value(league.id) }.sum / number_of_users
+  end
+
   def self.find_by_users_or_create(league, user_ids)
     user_ids.sort!
     found_team = league.teams.find { |team| team.users.map(&:id) == user_ids }
