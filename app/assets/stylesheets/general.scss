@@ -1,0 +1,86 @@
+@import 'constants';
+
+@mixin rounded($top_left: 4px, $top_right: 4px, $bottom_right: 4px, $bottom_left: 4px) {
+  border-radius: $top_left $top_right $bottom_right $bottom_left !important;
+  -moz-border-radius: $top_left $top_right $bottom_right $bottom_left !important; /* Firefox 3.6 and earlier */
+}
+
+.page-content {
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, p, a {
+  font-family: helvetica, sans-serif;
+} 
+h1 {
+  font-size: 27pt;
+  font-weight: 300;
+  color: #122C34;
+}
+h2 {
+  font-size: 18pt;
+  font-weight: 200;
+  color: #82D173;
+}
+h3 {
+  font-size: 16pt;
+  font-weight: 200;
+  color: #009900;  
+}
+p {
+  font-size: 13pt;
+  color: #122C34;
+}
+a {
+  font-size: 13pt;
+  color: #8E94F2;
+}
+a:hover {
+  color: #D8DCFF;
+}
+
+.members {
+  margin-bottom: 40px;  
+}
+.standing {
+  margin-bottom: 20px;
+}
+.standing-table {
+  margin-bottom: 10px;
+}
+.table-headings {
+  color: #009900;
+  margin: 0;
+}
+
+.pure-button {
+  @include rounded;
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white !important;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.button-success {
+    background: rgb(28, 184, 65) !important; /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60) !important; /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20) !important; /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221) !important; /* this is a light blue */
+}

@@ -24,7 +24,6 @@ gem 'devise'
 group :production do
   gem 'unicorn'
   gem 'rails_12factor', group: :production
-
 end
 
 group :test do
