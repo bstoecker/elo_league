@@ -3,55 +3,31 @@
 <div class="members">
   <div class="standing">
     <h2> Standing </h2>
-    <table class="standing-table">
-      <tr class="table-headings">
-        <td>
-          Rank
-        </td>
-        <td>
-          Nickname
-        </td>
-        <td>
-          Current Elo
-        </td>
-        <td>
-          Matches
-        </td>
-        <td>
-          Won
-        </td>
-        <td>
-          Draw
-        </td>
-        <td>
-          Lost
-        </td>
-      </tr>
-      <% @league.users.sort_by { |u| -u.current_elo_value(@league.id) }.each.with_index do |user, i| %>
+    <table class="pure-table pure-table-striped">
+      <thead>
         <tr>
-          <td>
-            <%= i + 1 %>
-          </td>
-          <td>
-            <%= user.nick_name %>
-          </td>
-          <td>
-            <%= user.current_elo_value(@league).round(2) %>
-          </td>
-          <td>
-            <%= user.matches(@league.id).size %>
-          </td>
-          <td>
-            <%= user.won_matches(@league.id).size %>
-          </td>
-          <td>
-            <%= user.draw_matches(@league.id).size %>
-          </td>
-          <td>
-            <%= user.lost_matches(@league.id).size %>
-          </td>
+          <th>Rank</th>
+          <th>Nickname</th>
+          <th>Current Elo</th>
+          <th>Matches</th>
+          <th>Won</th>
+          <th>Draw</th>
+          <th>Lost</th>
         </tr>
-      <% end %>
+      </thead>
+      <tbody>
+        <% @league.users.sort_by { |u| -u.current_elo_value(@league.id) }.each.with_index do |user, i| %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><%= user.nick_name %></td>
+            <td><%= user.current_elo_value(@league).round(2) %></td>
+            <td><%= user.matches(@league.id).size %></td>
+            <td><%= user.won_matches(@league.id).size %></td>
+            <td><%= user.draw_matches(@league.id).size %></td>
+            <td><%= user.lost_matches(@league.id).size %></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 <%= link_to 'Invite someone to join this league!', controller: "invitations", action: "new", league_id: @league.id, :class=>"new-invitation-link" %>
@@ -60,92 +36,85 @@
 <h2>Results</h2>
 <h3>Add new result</h2>
 
-<%= form_for @result ||= Result.new, url: results_path do |f| %>
-  <%= hidden_field_tag :league_id, @league.id %>
-  <table>
-    <tr>
-      <td>
-        <p class="table-headings"> Team 1 <p>
-      </td>
-      <td></td>
-      <td>
-        <p class="table-headings"> Team 2 </p>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <% @league.users.each do |user| %>
-          <%= check_box_tag "user_ids1[]", user.id  %>
-          <%= label_tag user.first_name  %> "<%= label_tag user.nick_name  %>" <%= label_tag user.last_name  %>
-          <br />
-        <% end %>
-      </td>
-      <td> VS </td>
-      <td>
-        <% @league.users.each do |user| %>
-          <%= check_box_tag "user_ids2[]", user.id  %>
-          <%= label_tag user.first_name  %> "<%= label_tag user.nick_name  %>" <%= label_tag user.last_name  %>
-          <br />
-        <% end %>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <%= f.text_field :score1 %>
-      </td>
-      <td> : </td>
-      <td>
-        <%= f.text_field :score2 %>
-      </td>
-    </tr>
-  </table>
-  <%= f.submit "Create" %>
+<%= form_for @result ||= Result.new, url: results_path, html: { class: "pure-form" } do |f| %>
+  <fieldset>
+    <%= hidden_field_tag :league_id, @league.id %>
+    <table>
+      <tbody>
+        <tr>
+          <td class="table-headings">Team 1</td>
+          <td></td>
+          <td class="table-headings">Team 2</td>
+        </tr>
+        <tr>
+          <td>
+            <% @league.users.each do |user| %>
+              <%= check_box_tag "user_ids1[]", user.id  %>
+              <%= label_tag user.first_name  %> "<%= label_tag user.nick_name  %>" <%= label_tag user.last_name  %>
+              <br />
+            <% end %>
+          </td>
+          <td>VS</td>
+          <td>
+            <% @league.users.each do |user| %>
+              <%= check_box_tag "user_ids2[]", user.id  %>
+              <%= label_tag user.first_name  %> "<%= label_tag user.nick_name  %>" <%= label_tag user.last_name  %>
+              <br />
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= f.text_field :score1 %></td>
+          <td> : </td>
+          <td><%= f.text_field :score2 %></td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <%= f.submit "Add", class: "pure-button"%>
+  </fieldset>
 <% end %>
 
+<br />
 <h3> Latest Results </h3>
-<table>
-  <tr>
-    <td>
-      <p class="table-headings"> MatchDay </p>
-    </td>
-    <td>
-      <p class="table-headings"> Team 1 </p>
-    </td>
-    <td></td>
-    <td>
-      <p class="table-headings"> Team 2 </p>
-    </td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <% @league.results.limit(25).each do |result| %>
+
+<table class="pure-table pure-table-horizontal pure-table-striped">
+  <thead>
     <tr>
-      <td>
-        <%= result.date%>
-      </td>
-      <td>
-        <div>
-          <% result.team1.users.each.with_index do |user, i| %>
-            <%= i == 0 ? "" : " / " %>
-            <%= user.nick_name %>
-          <% end %>
-        </div>
-      </td>
-      <td> VS </td>
-      <td>
-        <div>
-          <% result.team2.users.each.with_index do |user, i| %>
-            <%= i == 0 ? "" : " / " %>
-            <%= user.nick_name %>
-          <% end %>
-        </div>
-      </td>
-      <td> <%= result.score1.to_i %> </td>
-      <td> : </td>
-      <td> <%= result.score2.to_i %> </td>
+      <th>MatchDay</th>
+      <th>Team 1</th>
+      <th></th>
+      <th>Team 2</th>
+      <th>Result</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @league.results.limit(25).each do |result| %>
+      <tr>
+        <td><%= result.date%></td>
+        <td>
+          <div>
+            <% result.team1.users.each.with_index do |user, i| %>
+              <%= i == 0 ? "" : " / " %>
+              <%= user.nick_name %>
+            <% end %>
+          </div>
+        </td>
+        <td>VS</td>
+        <td>
+          <div>
+            <% result.team2.users.each.with_index do |user, i| %>
+              <%= i == 0 ? "" : " / " %>
+              <%= user.nick_name %>
+            <% end %>
+          </div>
+        </td>
+        <td>
+          <span><%= result.score1.to_i %></span>
+          <span>:</span>
+          <span><%= result.score2.to_i %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
