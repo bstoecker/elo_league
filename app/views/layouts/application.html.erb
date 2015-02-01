@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="header">
-      <div class="header-title"> Elo-League </div>
+      <%= link_to 'Elo-League', root_path, :class=>"header-title" %>
       <div class="header-elements"> </div>
         <% if user_signed_in? %>
           <%= link_to 'Leagues', leagues_path, :class=>"header-elements header-main" %>
