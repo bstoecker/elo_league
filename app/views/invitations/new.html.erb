@@ -1,6 +1,7 @@
 <h2> Invitation for league "<%= @league.name %>"" </h2>
 
-<%= form_for @user = User.new, url: {controller: 'invitations', action: "create", inviter_id: current_user.id, league_id: @league.id}, html: {class: "nifty_form"} do |f| %>
-  <%= f.text_field :email %><%= label_tag "email" %>
-  <%= f.submit "Create" %>
+<%= form_for @user = User.new, url: {controller: 'invitations', action: "create", inviter_id: current_user.id, league_id: @league.id}, html: {class: "pure-form"} do |f| %>
+  <%= label_tag "email:" %>
+  <%= f.text_field :email %>
+  <%= f.submit "Create", class: "pure-button" %>
 <% end %>

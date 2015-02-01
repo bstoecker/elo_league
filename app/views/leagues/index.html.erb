@@ -14,7 +14,7 @@
 
 <% if current_user.invitations.any? %>
 
-  <h2> Your invited for the following league(s) </h2>
+  <h2> You are invited to the following league(s) </h2>
 
   <div class="invitation-container">
     <% current_user.invitations.each do |invitation| %>
@@ -33,8 +33,12 @@
 <% end %>
 
 <h2> Create a new league </h2>
-<%= form_for @league = League.new, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_area :describtion, size: "60x12" %>
-  <%= f.submit "Create" %>
+<%= form_for @league = League.new, url: {action: "create"}, html: {class: "pure-form pure-form-stacked"} do |f| %>
+  <fieldset>
+    <label for="name">Name</label>
+    <%= f.text_field :name %>
+    <label for="describtion">Description</label>
+    <%= f.text_area :describtion, size: "30x6" %>
+    <%= f.submit "Create", class: 'pure-button pure-button-primary'%>
+  </fieldset>
 <% end %>
