@@ -1,0 +1,12 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "es5-shim": "latest",
+    "moment": "latest",
+    "highstock-release": "latest",
+    "jqueryui": "latest",
+    "pikaday" : "latest",
+    "bootstrap": "latest",
+    "pure": "latest"
+  }
+}
