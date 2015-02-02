@@ -121,7 +121,7 @@
     <td></td>
     <td></td>
   </tr>
-  <% @league.results.limit(25).each do |result| %>
+  <% @league.results.order('date DESC, created_at DESC').limit(25).each do |result| %>
     <tr>
       <td>
         <%= result.date%>
